@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Deep Patel's aerospace engineering portfolio featuring propulsion design, CFD analysis, CAD work, leadership, and academic highlights."
+  >
+  <meta property="og:title" content="Deep Patel | Aerospace Engineering Portfolio">
+  <meta
+    property="og:description"
+    content="A space-age minimalist portfolio centered on propulsion design, simulation, and hands-on engineering work."
+  >
+  <title>Deep Patel | Aerospace Engineering Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ["Orbitron", "sans-serif"],
+            sans: ["Space Grotesk", "sans-serif"],
+          },
+          colors: {
+            space: {
+              950: "#020617",
+              925: "#06101f",
+              900: "#0b1220",
+              850: "#10192b",
+              800: "#172033",
+            },
+            electric: {
+              300: "#7dd3fc",
+              400: "#38bdf8",
+              500: "#0ea5e9",
+            },
+          },
+          boxShadow: {
+            neon: "0 0 0 1px rgba(56, 189, 248, 0.20), 0 0 28px rgba(14, 165, 233, 0.16)",
+            panel: "0 20px 60px rgba(2, 6, 23, 0.55)",
+          },
+          backgroundImage: {
+            grid:
+              "linear-gradient(rgba(125,211,252,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(125,211,252,0.08) 1px, transparent 1px)",
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 28%),
+        radial-gradient(circle at 85% 12%, rgba(59, 130, 246, 0.16), transparent 18%),
+        linear-gradient(180deg, #020617 0%, #06101f 55%, #020617 100%);
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    .starfield::before,
+    .starfield::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .starfield::before {
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.5) 0 1px, transparent 1px),
+        radial-gradient(circle at 72% 18%, rgba(125,211,252,0.55) 0 1px, transparent 1px),
+        radial-gradient(circle at 38% 72%, rgba(255,255,255,0.4) 0 1px, transparent 1px),
+        radial-gradient(circle at 84% 74%, rgba(125,211,252,0.4) 0 1px, transparent 1px),
+        radial-gradient(circle at 55% 48%, rgba(255,255,255,0.35) 0 1px, transparent 1px);
+      opacity: 0.75;
+    }
+
+    .starfield::after {
+      background:
+        linear-gradient(rgba(125, 211, 252, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(125, 211, 252, 0.06) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 88%);
+      opacity: 0.6;
+    }
+
+    .glass {
+      background: rgba(11, 18, 32, 0.76);
+      border: 1px solid rgba(125, 211, 252, 0.14);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-ring {
+      background:
+        radial-gradient(circle at center, rgba(56, 189, 248, 0.18), transparent 58%),
+        conic-gradient(from 180deg, rgba(56, 189, 248, 0.05), rgba(14, 165, 233, 0.22), rgba(56, 189, 248, 0.05));
+    }
+
+    .modal-open {
+      overflow: hidden;
+    }
+
+    .scan-line {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scan-line::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent, rgba(125, 211, 252, 0.06), transparent);
+      transform: translateY(-100%);
+      animation: scan 8s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes scan {
+      to {
+        transform: translateY(100%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .scan-line::after {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body class="starfield font-sans selection:bg-sky-400/30 selection:text-white">
+  <div class="relative z-10">
+    <header class="sticky top-0 z-50 border-b border-sky-300/10 bg-space-950/80 backdrop-blur-xl">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-6 lg:px-8">
+        <a href="#top" class="flex items-center gap-3">
+          <span class="flex h-11 w-11 items-center justify-center rounded-full border border-sky-300/25 bg-sky-400/10 text-sky-300 shadow-neon">
+            <i data-lucide="orbit"></i>
+          </span>
+          <span>
+            <span class="block font-display text-sm uppercase tracking-[0.35em] text-sky-300">Deep Patel</span>
+            <span class="block text-xs text-slate-400">Aerospace Engineering Portfolio</span>
+          </span>
+        </a>
+
+        <div class="hidden items-center gap-7 text-sm text-slate-300 md:flex">
+          <a href="#projects" class="transition hover:text-sky-300">Projects</a>
+          <a href="#skills" class="transition hover:text-sky-300">Skills</a>
+          <a href="#experience" class="transition hover:text-sky-300">Experience</a>
+          <a href="#awards" class="transition hover:text-sky-300">Awards</a>
+          <a href="#contact" class="transition hover:text-sky-300">Contact</a>
+        </div>
+
+        <div class="hidden items-center gap-3 md:flex">
+          <a
+            href="assets/Deep-Patel-Resume.pdf"
+            download
+            class="inline-flex items-center gap-2 rounded-full border border-sky-300/20 bg-sky-400/10 px-4 py-2 text-sm font-medium text-sky-200 transition hover:border-sky-300/40 hover:bg-sky-400/20"
+          >
+            <i data-lucide="file-down" class="h-4 w-4"></i>
+            Resume
+          </a>
+        </div>
+
+        <button
+          id="menu-toggle"
+          type="button"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-sky-300/20 bg-white/5 text-slate-100 md:hidden"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Toggle navigation"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+      </nav>
+
+      <div id="mobile-menu" class="hidden border-t border-sky-300/10 bg-space-950/95 px-5 py-4 md:hidden">
+        <div class="flex flex-col gap-4 text-sm text-slate-300">
+          <a href="#projects" class="mobile-link">Projects</a>
+          <a href="#skills" class="mobile-link">Skills</a>
+          <a href="#experience" class="mobile-link">Experience</a>
+          <a href="#awards" class="mobile-link">Awards</a>
+          <a href="#contact" class="mobile-link">Contact</a>
+          <a href="assets/Deep-Patel-Resume.pdf" download class="mobile-link text-sky-300">Download Resume</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="mx-auto max-w-7xl px-5 pb-20 pt-14 sm:px-6 lg:px-8 lg:pb-28 lg:pt-20">
+        <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+          <div class="reveal">
+            <p class="mb-5 font-display text-xs uppercase tracking-[0.45em] text-sky-300">
+              Student Engineer • Propulsion • CFD
+            </p>
+            <h1 class="max-w-4xl font-display text-4xl leading-tight text-white sm:text-5xl lg:text-7xl">
+              Deep Patel
+            </h1>
+            <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+              I am a junior at Chelmsford High School with a 3.95 GPA, blending AP Computer Science,
+              Physics Honors, and Advanced Engineering Principles with hands-on aerospace design work.
+              I am especially motivated by propulsion, CFD, and CAD because they let me turn classroom
+              theory into physical systems, measurable performance, and real engineering decisions.
+            </p>
+            <p class="mt-4 max-w-2xl text-base leading-7 text-slate-400">
+              Whether I am iterating on a Mach 3.5 bell nozzle, learning through robotics, or balancing
+              track with academics, I am driven to build things that are ambitious, disciplined, and useful.
+            </p>
+
+            <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+              <a
+                href="#projects"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-sky-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-sky-300"
+              >
+                <i data-lucide="rocket"></i>
+                Explore Project
+              </a>
+              <a
+                href="https://www.linkedin.com/in/deep-patel-91ab41378/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BXQQVso2KRVipYZmZKvZo%2BQ%3D%3D"
+                target="_blank"
+                rel="noreferrer"
+                class="inline-flex items-center justify-center gap-2 rounded-full border border-sky-300/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-sky-300/40 hover:bg-sky-400/10"
+              >
+                <i data-lucide="linkedin"></i>
+                LinkedIn
+              </a>
+              <a
+                href="mailto:deep.patel4000@gmail.com"
+                class="inline-flex items-center justify-center gap-2 rounded-full border border-sky-300/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-sky-300/40 hover:bg-sky-400/10"
+              >
+                <i data-lucide="mail"></i>
+                Email Me
+              </a>
+            </div>
+
+            <div class="mt-10 flex flex-wrap gap-3 text-sm text-slate-300">
+              <span class="rounded-full border border-sky-300/15 bg-sky-400/10 px-4 py-2">Chelmsford High School</span>
+              <span class="rounded-full border border-sky-300/15 bg-sky-400/10 px-4 py-2">GPA 3.95</span>
+              <span class="rounded-full border border-sky-300/15 bg-sky-400/10 px-4 py-2">Expected Graduation: June 2027</span>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div class="glass scan-line relative overflow-hidden rounded-[2rem] p-6 shadow-panel sm:p-8">
+              <div class="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-sky-300/70 to-transparent"></div>
+              <div class="flex items-start justify-between gap-6">
+                <div>
+                  <p class="text-xs uppercase tracking-[0.35em] text-sky-300">Mission Dashboard</p>
+                  <h2 class="mt-3 font-display text-2xl text-white sm:text-3xl">Bell Nozzle Design Loop</h2>
+                </div>
+                <span class="rounded-full border border-sky-300/20 bg-sky-400/10 px-3 py-1 text-xs font-medium text-sky-200">
+                  Live Portfolio Snapshot
+                </span>
+              </div>
+
+              <div class="project-ring mt-8 rounded-[1.75rem] border border-sky-300/10 p-5">
+                <div class="rounded-[1.35rem] border border-sky-300/20 bg-space-925/80 p-5">
+                  <div class="grid gap-4 sm:grid-cols-2">
+                    <div class="rounded-2xl border border-sky-300/12 bg-white/5 p-4">
+                      <p class="text-xs uppercase tracking-[0.3em] text-slate-400">Propellant Pair</p>
+                      <p class="mt-2 text-xl font-semibold text-white">LOX / RP-1</p>
+                    </div>
+                    <div class="rounded-2xl border border-sky-300/12 bg-white/5 p-4">
+                      <p class="text-xs uppercase tracking-[0.3em] text-slate-400">Target Exit Mach</p>
+                      <p class="mt-2 text-xl font-semibold text-white">3.5</p>
+                    </div>
+                    <div class="rounded-2xl border border-sky-300/12 bg-white/5 p-4">
+                      <p class="text-xs uppercase tracking-[0.3em] text-slate-400">Chamber Pressure</p>
+                      <p class="mt-2 text-xl font-semibold text-white">100 bar</p>
+                    </div>
+                    <div class="rounded-2xl border border-sky-300/12 bg-white/5 p-4">
+                      <p class="text-xs uppercase tracking-[0.3em] text-slate-400">Predicted Exit Velocity</p>
+                      <p class="mt-2 text-xl font-semibold text-white">2450 m/s</p>
+                    </div>
+                  </div>
+
+                  <div class="mt-5 rounded-2xl border border-sky-300/12 bg-space-950/70 p-4">
+                    <div class="flex items-center justify-between gap-3">
+                      <p class="text-sm font-medium text-white">Current Focus Stack</p>
+                      <span class="text-xs uppercase tracking-[0.28em] text-sky-300">Tools</span>
+                    </div>
+                    <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-200">
+                      <span class="rounded-full bg-sky-400/10 px-3 py-1.5">NASA CEA</span>
+                      <span class="rounded-full bg-sky-400/10 px-3 py-1.5">Fusion 360</span>
+                      <span class="rounded-full bg-sky-400/10 px-3 py-1.5">SimScale CFD</span>
+                      <span class="rounded-full bg-sky-400/10 px-3 py-1.5">Excel Analysis</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-8 grid gap-4 sm:grid-cols-3">
+                <div class="rounded-2xl border border-sky-300/10 bg-white/5 p-4">
+                  <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Throat Radius</p>
+                  <p class="mt-2 text-lg font-semibold text-white">5.0 mm</p>
+                </div>
+                <div class="rounded-2xl border border-sky-300/10 bg-white/5 p-4">
+                  <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Exit Radius</p>
+                  <p class="mt-2 text-lg font-semibold text-white">18.55 mm</p>
+                </div>
+                <div class="rounded-2xl border border-sky-300/10 bg-white/5 p-4">
+                  <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Bell Length</p>
+                  <p class="mt-2 text-lg font-semibold text-white">45.0 mm</p>
+                </div>
+              </div>
+
+              <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                <div class="rounded-2xl border border-sky-300/10 bg-white/5 p-4">
+                  <p class="text-xs uppercase tracking-[0.3em] text-slate-500">O/F Ratio</p>
+                  <p class="mt-2 text-lg font-semibold text-white">2.56</p>
+                </div>
+                <div class="rounded-2xl border border-sky-300/10 bg-white/5 p-4">
+                  <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Inlet Temperature</p>
+                  <p class="mt-2 text-lg font-semibold text-white">3615 K</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-8">
+        <div class="reveal mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="font-display text-xs uppercase tracking-[0.4em] text-sky-300">Featured Work</p>
+            <h2 class="mt-3 font-display text-3xl text-white sm:text-4xl">Optimized Bell Nozzle</h2>
+          </div>
+          <p class="max-w-2xl text-slate-400">
+            A propulsion-focused case study that combines theory, simulation, and manufacturability to
+            investigate a Mach 3.5 LOX/RP-1 rocket nozzle.
+          </p>
+        </div>
+
+        <article class="reveal glass overflow-hidden rounded-[2rem] shadow-panel">
+          <div class="grid lg:grid-cols-[1.05fr_0.95fr]">
+            <div class="relative min-h-[320px]">
+              <img
+                src="assets/paraview-final.png"
+                alt="ParaView view of the computational domain for the bell nozzle project"
+                class="absolute inset-0 h-full w-full object-cover"
+              >
+              <div class="absolute inset-0 bg-gradient-to-t from-space-950 via-space-950/35 to-transparent"></div>
+              <div class="absolute bottom-6 left-6 right-6">
+                <div class="inline-flex items-center gap-2 rounded-full border border-sky-300/20 bg-space-950/75 px-4 py-2 text-xs uppercase tracking-[0.3em] text-sky-200">
+                  <i data-lucide="radar"></i>
+                  CFD Visualization
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 sm:p-8 lg:p-10">
+              <div class="flex flex-wrap gap-2 text-xs font-medium text-sky-200">
+                <span class="rounded-full border border-sky-300/15 bg-sky-400/10 px-3 py-1.5">CAD</span>
+                <span class="rounded-full border border-sky-300/15 bg-sky-400/10 px-3 py-1.5">Fusion 360</span>
+                <span class="rounded-full border border-sky-300/15 bg-sky-400/10 px-3 py-1.5">SimScale CFD</span>
+                <span class="rounded-full border border-sky-300/15 bg-sky-400/10 px-3 py-1.5">NASA CEA</span>
+              </div>
+
+              <h3 class="mt-5 text-2xl font-semibold text-white sm:text-3xl">
+                Mach 3.5 LOX/RP-1 Bell Nozzle Design and Analysis
+              </h3>
+              <p class="mt-5 leading-7 text-slate-300">
+                This project follows the full engineering cycle of a high-pressure bell nozzle, from
+                thermodynamic sizing to simulation-backed validation. I used NASA CEA data to size the
+                geometry for a 100 bar combustion system and then translated those targets into a CAD and
+                CFD workflow focused on exit performance at a 3 km operating altitude.
+              </p>
+              <p class="mt-4 leading-7 text-slate-400">
+                The work pushed beyond a simple render by testing solver stability, interpreting residual
+                behavior, and thinking carefully about manufacturability for a physical print. It became a
+                great example of how aerospace design is really an iterative loop between theory, software,
+                and practical constraints.
+              </p>
+
+              <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                <div class="rounded-2xl border border-sky-300/12 bg-white/5 p-4">
+                  <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Engineering Goal</p>
+                  <p class="mt-2 text-sm leading-6 text-slate-200">
+                    Achieve a theoretical exit Mach of 3.5 with a geometry optimized for high-pressure
+                    supersonic expansion.
+                  </p>
+                </div>
+                <div class="rounded-2xl border border-sky-300/12 bg-white/5 p-4">
+                  <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Key Result</p>
+                  <p class="mt-2 text-sm leading-6 text-slate-200">
+                    Predicted exit velocity of 2450 m/s and a verified supersonic core before solver
+                    limits were reached.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-8 grid gap-4 sm:grid-cols-3">
+                <div class="rounded-2xl border border-sky-300/12 bg-space-950/60 p-4">
+                  <p class="text-xs uppercase tracking-[0.28em] text-slate-500">Modeling</p>
+                  <p class="mt-2 text-sm leading-6 text-slate-200">
+                    NASA CEA sizing translated into CAD geometry and a custom bell profile.
+                  </p>
+                </div>
+                <div class="rounded-2xl border border-sky-300/12 bg-space-950/60 p-4">
+                  <p class="text-xs uppercase tracking-[0.28em] text-slate-500">Validation</p>
+                  <p class="mt-2 text-sm leading-6 text-slate-200">
+                    rhoSimpleFoam CFD with a hex-dominant mesh and local throat refinement.
+                  </p>
+                </div>
+                <div class="rounded-2xl border border-sky-300/12 bg-space-950/60 p-4">
+                  <p class="text-xs uppercase tracking-[0.28em] text-slate-500">Fabrication</p>
+                  <p class="mt-2 text-sm leading-6 text-slate-200">
+                    Designed for additive manufacturing with an inverted print orientation.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+                <button
+                  type="button"
+                  data-open-modal
+                  class="inline-flex items-center justify-center gap-2 rounded-full bg-sky-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-sky-300"
+                >
+                  <i data-lucide="expand"></i>
+                  Open Case Study
+                </button>
+                <a
+                  href="assets/Bell-Nozzle-Report.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="inline-flex items-center justify-center gap-2 rounded-full border border-sky-300/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-sky-300/40 hover:bg-sky-400/10"
+                >
+                  <i data-lucide="scroll-text"></i>
+                  Project Report
+                </a>
+                <a
+                  href="assets/Deep-Patel-Resume.pdf"
+                  download
+                  class="inline-flex items-center justify-center gap-2 rounded-full border border-sky-300/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-sky-300/40 hover:bg-sky-400/10"
+                >
+                  <i data-lucide="file-text"></i>
+                  Resume PDF
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="skills" class="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-8">
+        <div class="reveal mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="font-display text-xs uppercase tracking-[0.4em] text-sky-300">Core Skills</p>
+            <h2 class="mt-3 font-display text-3xl text-white sm:text-4xl">Tools I Build With</h2>
+          </div>
+          <p class="max-w-2xl text-slate-400">
+            My toolkit reflects a mix of programming, engineering software, and practical analysis that
+            supports both design thinking and technical execution.
+          </p>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div class="reveal glass rounded-[1.75rem] p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-400/10 text-sky-300">
+              <i data-lucide="code-2"></i>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-white">Java</h3>
+            <p class="mt-2 text-sm text-sky-300">AP Computer Science A</p>
+            <p class="mt-4 leading-7 text-slate-400">
+              Object-oriented programming fundamentals, problem solving, and structured logic developed
+              through AP coursework.
+            </p>
+          </div>
+
+          <div class="reveal glass rounded-[1.75rem] p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-400/10 text-sky-300">
+              <i data-lucide="box"></i>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-white">CAD</h3>
+            <p class="mt-2 text-sm text-sky-300">Autodesk Fusion 360</p>
+            <p class="mt-4 leading-7 text-slate-400">
+              Building geometry with a focus on accuracy, manufacturability, and smooth internal flow paths
+              for engineering prototypes.
+            </p>
+          </div>
+
+          <div class="reveal glass rounded-[1.75rem] p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-400/10 text-sky-300">
+              <i data-lucide="wind"></i>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-white">CFD Analysis</h3>
+            <p class="mt-2 text-sm text-sky-300">SimScale</p>
+            <p class="mt-4 leading-7 text-slate-400">
+              Using simulation results and residual behavior to understand flow quality, solver stability,
+              and design tradeoffs in propulsion-related problems.
+            </p>
+          </div>
+
+          <div class="reveal glass rounded-[1.75rem] p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-400/10 text-sky-300">
+              <i data-lucide="sheet"></i>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-white">Data Analysis</h3>
+            <p class="mt-2 text-sm text-sky-300">Microsoft Excel</p>
+            <p class="mt-4 leading-7 text-slate-400">
+              Organizing inputs, comparing performance values, and translating engineering data into clear
+              decisions and documentation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-8">
+        <div class="reveal mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="font-display text-xs uppercase tracking-[0.4em] text-sky-300">Experience</p>
+            <h2 class="mt-3 font-display text-3xl text-white sm:text-4xl">Leadership, Work, and Team Environments</h2>
+          </div>
+          <p class="max-w-2xl text-slate-400">
+            My experience spans technical operations, volunteer leadership, fabrication, and team-based
+            activities that have strengthened both discipline and execution.
+          </p>
+        </div>
+
+        <div class="grid gap-5 lg:grid-cols-2">
+          <article class="reveal glass rounded-[1.75rem] p-6">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-xl font-semibold text-white">Technical Operations Intern</h3>
+                <p class="mt-1 text-sm text-sky-300">Stash Proxies | Lowell, MA | Jan 2021 - Jan 2022</p>
+              </div>
+              <span class="rounded-full border border-sky-300/15 bg-sky-400/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-sky-200">
+                Infrastructure
+              </span>
+            </div>
+            <p class="mt-5 leading-7 text-slate-400">
+              Supported proxy server operations and routine testing for more than 500 monthly active users,
+              while helping validate server health, location targeting, and customer-facing reliability.
+            </p>
+          </article>
+
+          <article class="reveal glass rounded-[1.75rem] p-6">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-xl font-semibold text-white">Youth Activities Coordinator</h3>
+                <p class="mt-1 text-sm text-sky-300">BAPS Bal Mandal | Lowell, MA | Aug 2022 - Present</p>
+              </div>
+              <span class="rounded-full border border-sky-300/15 bg-sky-400/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-sky-200">
+                Leadership
+              </span>
+            </div>
+            <p class="mt-5 leading-7 text-slate-400">
+              Help execute large-scale youth events with 1,000+ participants and build structured programs
+              that encourage mentorship, teamwork, and personal growth.
+            </p>
+          </article>
+
+          <article class="reveal glass rounded-[1.75rem] p-6">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-xl font-semibold text-white">Full-Time Volunteer</h3>
+                <p class="mt-1 text-sm text-sky-300">BAPS Akshardham | Robbinsville, NJ | Jul 2023 - Oct 2023</p>
+              </div>
+              <span class="rounded-full border border-sky-300/15 bg-sky-400/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-sky-200">
+                Fabrication
+              </span>
+            </div>
+            <p class="mt-5 leading-7 text-slate-400">
+              Managed digital fabrication workflows, created CNC-ready files, and worked with senior
+              designers to produce complex architectural components with accuracy and efficiency.
+            </p>
+          </article>
+
+          <article class="reveal glass rounded-[1.75rem] p-6">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-xl font-semibold text-white">Student Athlete and Team Contributor</h3>
+                <p class="mt-1 text-sm text-sky-300">Chelmsford Track and Field | Nov 2023 - Present</p>
+              </div>
+              <span class="rounded-full border border-sky-300/15 bg-sky-400/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-sky-200">
+                Discipline
+              </span>
+            </div>
+            <p class="mt-5 leading-7 text-slate-400">
+              Compete in the high jump, 55m hurdles, and 110m hurdles while balancing demanding academics
+              and maintaining a strong focus on consistency and improvement.
+            </p>
+          </article>
+
+          <article class="reveal glass rounded-[1.75rem] p-6">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-xl font-semibold text-white">Fulfillment and Logistics Associate</h3>
+                <p class="mt-1 text-sm text-sky-300">Dasbhav LLC | Lowell, MA | Nov 2020 - Jan 2022</p>
+              </div>
+              <span class="rounded-full border border-sky-300/15 bg-sky-400/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-sky-200">
+                Operations
+              </span>
+            </div>
+            <p class="mt-5 leading-7 text-slate-400">
+              Managed daily fulfillment, shipping workflows, and inventory organization while improving
+              packaging procedures to support on-time delivery and customer satisfaction.
+            </p>
+          </article>
+
+          <article class="reveal glass rounded-[1.75rem] p-6">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-xl font-semibold text-white">Community Volunteer</h3>
+                <p class="mt-1 text-sm text-sky-300">BAPS Charities | Lowell, MA | Jun 2017 - Present</p>
+              </div>
+              <span class="rounded-full border border-sky-300/15 bg-sky-400/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-sky-200">
+                Service
+              </span>
+            </div>
+            <p class="mt-5 leading-7 text-slate-400">
+              Support health awareness events, food drives, cleanups, outreach, and event logistics while
+              helping promote civic engagement and wellness in local communities.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="activities" class="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-8">
+        <div class="reveal mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="font-display text-xs uppercase tracking-[0.4em] text-sky-300">Clubs and Interests</p>
+            <h2 class="mt-3 font-display text-3xl text-white sm:text-4xl">Where I Keep Learning</h2>
+          </div>
+          <p class="max-w-2xl text-slate-400">
+            Outside the featured project, I stay close to engineering through clubs, competitive teamwork,
+            and a wider curiosity about robotics, astronomy, and space science.
+          </p>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-3">
+          <article class="reveal glass rounded-[1.75rem] p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-400/10 text-sky-300">
+              <i data-lucide="sparkles"></i>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-white">Artificial Intelligence Club</h3>
+            <p class="mt-2 text-sm text-sky-300">Sep 2025 - Present</p>
+            <p class="mt-4 leading-7 text-slate-400">
+              Explore emerging AI tools, discuss real-world applications, and build hands-on projects with
+              peers in a collaborative setting.
+            </p>
+          </article>
+
+          <article class="reveal glass rounded-[1.75rem] p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-400/10 text-sky-300">
+              <i data-lucide="bot"></i>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-white">Robotics Club</h3>
+            <p class="mt-2 text-sm text-sky-300">Sep 2023 - Jun 2024</p>
+            <p class="mt-4 leading-7 text-slate-400">
+              Worked on VEX robotics builds, testing, and performance iteration, which reinforced mechanical
+              problem solving and system-level thinking.
+            </p>
+          </article>
+
+          <article class="reveal glass rounded-[1.75rem] p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-400/10 text-sky-300">
+              <i data-lucide="telescope"></i>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-white">Long-Term Interests</h3>
+            <p class="mt-2 text-sm text-sky-300">Aerospace, Astronomy, Rocketry</p>
+            <p class="mt-4 leading-7 text-slate-400">
+              I am especially drawn to propulsion, astrophysics, 3D modeling, and the challenge of turning
+              ambitious ideas about flight and space into real engineering work.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="awards" class="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-8">
+        <div class="reveal mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="font-display text-xs uppercase tracking-[0.4em] text-sky-300">Awards and Academics</p>
+            <h2 class="mt-3 font-display text-3xl text-white sm:text-4xl">Recognition and Academic Highlights</h2>
+          </div>
+          <p class="max-w-2xl text-slate-400">
+            These highlights reflect the academic foundation behind my engineering interests and the level
+            of consistency I bring to long-term goals.
+          </p>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-3">
+          <article class="reveal glass rounded-[1.75rem] p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-400/10 text-sky-300">
+              <i data-lucide="award"></i>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-white">National Honor Society</h3>
+            <p class="mt-3 leading-7 text-slate-400">
+              Member since March 2026, recognized for academic strength, responsibility, and service.
+            </p>
+          </article>
+
+          <article class="reveal glass rounded-[1.75rem] p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-400/10 text-sky-300">
+              <i data-lucide="graduation-cap"></i>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-white">3.95 GPA</h3>
+            <p class="mt-3 leading-7 text-slate-400">
+              Maintaining high academic performance at Chelmsford High School while pursuing technical
+              coursework and extracurricular commitments.
+            </p>
+          </article>
+
+          <article class="reveal glass rounded-[1.75rem] p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-400/10 text-sky-300">
+              <i data-lucide="book-open-text"></i>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-white">Advanced Coursework</h3>
+            <p class="mt-3 leading-7 text-slate-400">
+              AP Computer Science, Physics Honors, Pre-Calculus, and Advanced Engineering Principles and 3D
+              Design.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="mx-auto max-w-7xl px-5 pb-12 pt-14 sm:px-6 lg:px-8">
+      <div class="reveal glass overflow-hidden rounded-[2rem] p-6 shadow-panel sm:p-8">
+        <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <p class="font-display text-xs uppercase tracking-[0.4em] text-sky-300">Let&apos;s Connect</p>
+            <h2 class="mt-3 font-display text-3xl text-white sm:text-4xl">Open to learning, building, and new aerospace opportunities.</h2>
+            <p class="mt-5 max-w-2xl leading-7 text-slate-400">
+              I am excited by opportunities where I can keep growing in aerospace engineering, strengthen my
+              technical skills, and contribute to ambitious projects with real purpose.
+            </p>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <a
+              href="mailto:deep.patel4000@gmail.com"
+              class="rounded-[1.5rem] border border-sky-300/12 bg-white/5 p-5 transition hover:border-sky-300/35 hover:bg-sky-400/10"
+            >
+              <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Email</p>
+              <p class="mt-3 text-base font-medium text-white">deep.patel4000@gmail.com</p>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/deep-patel-91ab41378/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BXQQVso2KRVipYZmZKvZo%2BQ%3D%3D"
+              target="_blank"
+              rel="noreferrer"
+              class="rounded-[1.5rem] border border-sky-300/12 bg-white/5 p-5 transition hover:border-sky-300/35 hover:bg-sky-400/10"
+            >
+              <p class="text-xs uppercase tracking-[0.3em] text-slate-500">LinkedIn</p>
+              <p class="mt-3 text-base font-medium text-white">View profile</p>
+            </a>
+
+            <a
+              href="assets/Deep-Patel-Resume.pdf"
+              download
+              class="rounded-[1.5rem] border border-sky-300/12 bg-white/5 p-5 transition hover:border-sky-300/35 hover:bg-sky-400/10"
+            >
+              <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Resume</p>
+              <p class="mt-3 text-base font-medium text-white">Download PDF</p>
+            </a>
+
+            <div class="rounded-[1.5rem] border border-sky-300/12 bg-white/5 p-5">
+              <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Location</p>
+              <p class="mt-3 text-base font-medium text-white">Lowell, Massachusetts</p>
+            </div>
+
+            <a
+              href="assets/Bell-Nozzle-Report.pdf"
+              target="_blank"
+              rel="noreferrer"
+              class="rounded-[1.5rem] border border-sky-300/12 bg-white/5 p-5 transition hover:border-sky-300/35 hover:bg-sky-400/10 sm:col-span-2"
+            >
+              <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Bell Nozzle Report</p>
+              <p class="mt-3 text-base font-medium text-white">Open full design and analysis PDF</p>
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-10 border-t border-sky-300/10 pt-5 text-sm text-slate-500">
+          Deep Patel | Aerospace Engineering Portfolio
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div
+    id="project-modal"
+    class="pointer-events-none fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/80 px-4 opacity-0 transition duration-300"
+    aria-hidden="true"
+  >
+    <div class="absolute inset-0" data-close-modal></div>
+    <div class="glass pointer-events-auto relative max-h-[88vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border border-sky-300/16 shadow-panel">
+      <div class="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-sky-300/10 bg-space-950/90 px-5 py-4 backdrop-blur-xl sm:px-8">
+        <div>
+          <p class="font-display text-xs uppercase tracking-[0.35em] text-sky-300">Case Study</p>
+          <h3 class="mt-2 text-xl font-semibold text-white sm:text-2xl">Optimized Bell Nozzle</h3>
+        </div>
+        <button
+          type="button"
+          data-close-modal
+          class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-sky-300/15 bg-white/5 text-white"
+          aria-label="Close case study"
+        >
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="p-5 sm:p-8">
+        <div class="grid gap-8 xl:grid-cols-[1fr_1.05fr]">
+          <div class="space-y-6">
+            <img
+              src="assets/paraview-final.png"
+              alt="ParaView visualization used as the main project thumbnail"
+              class="h-72 w-full rounded-[1.5rem] border border-sky-300/10 object-cover shadow-neon sm:h-80"
+            >
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="rounded-[1.5rem] border border-sky-300/10 bg-white/5 p-4">
+                <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Mission Objective</p>
+                <p class="mt-3 leading-7 text-slate-300">
+                  Design a LOX/RP-1 rocket nozzle sized for a 100 bar combustion system and an exit Mach
+                  number of 3.5 at 3 km altitude.
+                </p>
+              </div>
+              <div class="rounded-[1.5rem] border border-sky-300/10 bg-white/5 p-4">
+                <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Engineering Takeaway</p>
+                <p class="mt-3 leading-7 text-slate-300">
+                  Even when full steady-state convergence is difficult, simulation behavior can still reveal
+                  useful physical insight and guide smarter iteration.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="grid gap-4 md:grid-cols-2">
+              <div class="rounded-[1.5rem] border border-sky-300/10 bg-white/5 p-4">
+                <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Propellant Pair</p>
+                <p class="mt-2 text-lg font-semibold text-white">LOX / RP-1</p>
+              </div>
+              <div class="rounded-[1.5rem] border border-sky-300/10 bg-white/5 p-4">
+                <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Exit Pressure Target</p>
+                <p class="mt-2 text-lg font-semibold text-white">0.7 bar</p>
+              </div>
+              <div class="rounded-[1.5rem] border border-sky-300/10 bg-white/5 p-4">
+                <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Gas Properties</p>
+                <p class="mt-2 text-lg font-semibold text-white">gamma = 1.2</p>
+              </div>
+              <div class="rounded-[1.5rem] border border-sky-300/10 bg-white/5 p-4">
+                <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Molecular Weight</p>
+                <p class="mt-2 text-lg font-semibold text-white">22.65 g/mol</p>
+              </div>
+              <div class="rounded-[1.5rem] border border-sky-300/10 bg-white/5 p-4">
+                <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Solver</p>
+                <p class="mt-2 text-lg font-semibold text-white">rhoSimpleFoam</p>
+              </div>
+              <div class="rounded-[1.5rem] border border-sky-300/10 bg-white/5 p-4">
+                <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Prototype Method</p>
+                <p class="mt-2 text-lg font-semibold text-white">FDM 3D Printing</p>
+              </div>
+            </div>
+
+            <div class="mt-6 rounded-[1.75rem] border border-sky-300/10 bg-space-950/65 p-5">
+              <h4 class="text-lg font-semibold text-white">Project Summary</h4>
+              <p class="mt-4 leading-7 text-slate-300">
+                This project covered the full lifecycle of a propulsion concept: theoretical sizing from NASA
+                CEA, geometry definition for a bell nozzle, CFD validation, and a manufacturability mindset
+                for a physical print. The design targeted a high expansion case, which created meaningful
+                solver challenges and made the analysis itself part of the engineering story.
+              </p>
+              <p class="mt-4 leading-7 text-slate-400">
+                The computational setup used a hex-dominant mesh with local throat refinement. Residual plots
+                showed stabilized velocity and pressure behavior while enthalpy divergence appeared around
+                iteration 24, highlighting the extreme numerical gradients inside the supersonic regime.
+              </p>
+            </div>
+
+            <div class="mt-6 rounded-[1.75rem] border border-sky-300/10 bg-white/5 p-5">
+              <h4 class="text-lg font-semibold text-white">Engineering Workflow</h4>
+              <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                <div class="rounded-2xl border border-sky-300/10 bg-space-950/55 p-4">
+                  <p class="text-sm font-medium text-sky-300">1. Performance Targeting</p>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">
+                    Used NASA CEA output for a 100 bar combustion case and a 0.7 bar exit target at 3 km altitude.
+                  </p>
+                </div>
+                <div class="rounded-2xl border border-sky-300/10 bg-space-950/55 p-4">
+                  <p class="text-sm font-medium text-sky-300">2. Geometry Definition</p>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">
+                    Sized the throat, exit, and bell length to create a compact, high-expansion nozzle profile.
+                  </p>
+                </div>
+                <div class="rounded-2xl border border-sky-300/10 bg-space-950/55 p-4">
+                  <p class="text-sm font-medium text-sky-300">3. CFD Investigation</p>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">
+                    Meshed the computational domain with local throat refinement and analyzed residual behavior.
+                  </p>
+                </div>
+                <div class="rounded-2xl border border-sky-300/10 bg-space-950/55 p-4">
+                  <p class="text-sm font-medium text-sky-300">4. Manufacturing Strategy</p>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">
+                    Planned an inverted print orientation to preserve the internal curve without sacrificial support.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 rounded-[1.75rem] border border-sky-300/10 bg-white/5 p-5">
+              <h4 class="text-lg font-semibold text-white">What I Learned</h4>
+              <div class="mt-4 grid gap-4 sm:grid-cols-3">
+                <div>
+                  <p class="text-sm font-medium text-sky-300">Theory to Geometry</p>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">
+                    Converting performance targets into throat, exit, and bell dimensions sharpened my
+                    understanding of nozzle sizing.
+                  </p>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-sky-300">Solver Awareness</p>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">
+                    Residual behavior taught me how to read convergence critically instead of treating CFD as
+                    a black box.
+                  </p>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-sky-300">Design for Buildability</p>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">
+                    The project reinforced that geometry quality and manufacturing strategy matter just as
+                    much as the ideal theoretical profile.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10">
+          <div class="flex items-end justify-between gap-4">
+            <div>
+              <p class="font-display text-xs uppercase tracking-[0.35em] text-sky-300">Simulation Gallery</p>
+              <h4 class="mt-3 text-2xl font-semibold text-white">Visual checkpoints from the analysis pipeline</h4>
+            </div>
+          </div>
+
+          <div class="mt-6 grid gap-5 lg:grid-cols-2">
+            <figure class="rounded-[1.75rem] border border-sky-300/10 bg-white/5 p-4">
+              <img
+                src="assets/cfd-results-final.png"
+                alt="CFD results graph showing initial simulation behavior"
+                class="h-72 w-full rounded-[1.25rem] object-cover"
+              >
+              <figcaption class="mt-4 text-sm leading-6 text-slate-400">
+                Initial CAD and simulation showing flow separation.
+              </figcaption>
+            </figure>
+
+            <figure class="rounded-[1.75rem] border border-sky-300/10 bg-white/5 p-4">
+              <img
+                src="assets/hex-mesh-final.png"
+                alt="Hex mesh setup for the optimized geometry"
+                class="h-72 w-full rounded-[1.25rem] object-cover"
+              >
+              <figcaption class="mt-4 text-sm leading-6 text-slate-400">
+                Optimized geometry demonstrating improved exit velocity.
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a
+              href="assets/Bell-Nozzle-Report.pdf"
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-sky-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-sky-300"
+            >
+              <i data-lucide="book-open"></i>
+              Open Full Report
+            </a>
+            <a
+              href="assets/Deep-Patel-Resume.pdf"
+              download
+              class="inline-flex items-center justify-center gap-2 rounded-full border border-sky-300/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-sky-300/40 hover:bg-sky-400/10"
+            >
+              <i data-lucide="download"></i>
+              Download Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const revealItems = document.querySelectorAll(".reveal");
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    menuToggle.addEventListener("click", () => {
+      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!expanded));
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const modal = document.getElementById("project-modal");
+    const openModalButtons = document.querySelectorAll("[data-open-modal]");
+    const closeModalButtons = document.querySelectorAll("[data-close-modal]");
+
+    const openModal = () => {
+      modal.classList.remove("pointer-events-none", "opacity-0");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+    };
+
+    const closeModal = () => {
+      modal.classList.add("pointer-events-none", "opacity-0");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+    };
+
+    openModalButtons.forEach((button) => button.addEventListener("click", openModal));
+    closeModalButtons.forEach((button) => button.addEventListener("click", closeModal));
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
+        closeModal();
+      }
+    });
+
+    lucide.createIcons();
+  </script>
+</body>
+</html>
