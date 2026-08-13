@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Optimized Bell Nozzle — Deep Patel</title>
+  <meta name="description" content="A Mach 3.5 LOX/RP-1 bell nozzle sized from NASA CEA data, modeled as a parametric shell, meshed for a compressible solver, and printed.">
+  <link rel="canonical" href="https://deeppatel4000-pixel.github.io/projects/bell-nozzle/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Optimized Bell Nozzle — Deep Patel">
+  <meta property="og:description" content="Sizing, modeling, meshing, and printing a Mach 3.5 LOX/RP-1 rocket nozzle.">
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="../../">Deep Patel</a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="../../#work">Work</a></li>
+          <li><a href="../../#about">About</a></li>
+          <li><a href="../../#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="project-header">
+      <div class="wrap">
+      <a class="project-header__back" href="../../#work">Work</a>
+      <h1 class="project-header__title">Optimized Bell Nozzle</h1>
+      <p class="lede">
+        A Mach 3.5 LOX/RP-1 nozzle, sized from NASA CEA data for a 100 bar chamber and a
+        0.7 bar exit, drawn as a parametric shell, meshed for a compressible solver, and
+        printed.
+      </p>
+      <dl class="project-meta">
+        <div>
+          <dt>Type</dt>
+          <dd>Design and analysis</dd>
+        </div>
+        <div>
+          <dt>Propellants</dt>
+          <dd>LOX / RP-1, O/F 2.56</dd>
+        </div>
+        <div>
+          <dt>Geometry</dt>
+          <dd>5.0 mm throat, 18.55 mm exit</dd>
+        </div>
+        <div>
+          <dt>Tools</dt>
+          <dd>NASA CEA, OpenSCAD, OpenFOAM, FDM</dd>
+        </div>
+      </dl>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="nozzle-sizing">
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="nozzle-sizing">Sizing</h2>
+        </div>
+        <div class="prose">
+          <p>
+            The target was an exit Mach number of 3.5 at roughly 3 km altitude, from a 100 bar
+            chamber. NASA CEA gave the gas properties for the LOX/RP-1 pair at an O/F ratio of
+            2.56, which set the ratio of specific heats and the molecular weight the rest of
+            the sizing depends on.
+          </p>
+          <p>
+            Those numbers fix the area ratio, and the area ratio fixes the geometry: a 5.0 mm
+            throat radius and an 18.55 mm exit radius, an area ratio of 13.8, over a 45 mm
+            bell.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="nozzle-cfd">
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="nozzle-cfd">Simulation</h2>
+        </div>
+        <div class="prose">
+          <p>
+            The geometry went into a compressible steady-state solver on a hex-dominant mesh.
+            It did not converge. Residuals stalled and the run diverged around iteration 24,
+            with a pressure ratio of roughly 143 to 1 and a 3615 K inlet driving gradients the
+            steady solver could not hold.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="nozzle-print">
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="nozzle-print">Printing it</h2>
+        </div>
+        <div class="prose">
+          <p>
+            The nozzle was modeled in OpenSCAD as a parametric shell with a 2.0 mm wall and
+            printed on an FDM machine. Printing it upside down — widest end flat on the bed —
+            lets the parabolic wall support itself, so no internal support material touches
+            the expansion curve.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="wrap project-nav" aria-label="Project">
+      <a href="../orbix/">Previous: ORBIX</a>
+      <a href="../../#work">All work</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <p>Deep Patel · Chelmsford, Massachusetts</p>
+      <p><a href="mailto:deep.patel4000@gmail.com">deep.patel4000@gmail.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>
