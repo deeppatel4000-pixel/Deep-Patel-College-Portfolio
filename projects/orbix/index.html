@@ -62,15 +62,16 @@
     <section class="section" aria-labelledby="ox-why">
       <div class="wrap section__grid">
         <div class="section__rail">
-          <h2 class="section__title" id="ox-why">What I wanted to build</h2>
+          <h2 class="section__title" id="ox-why">What ORBIX is built around</h2>
         </div>
         <div class="prose">
           <p>
-            ORBIX started around a problem in working with aircraft and rocket data. A number
-            on its own is not always useful. An empty mass can mean one configuration in one
-            source and a slightly different one somewhere else, and the units and assumptions
-            behind it are not always shown next to it. Put two vehicles side by side that way
-            and you can end up comparing values that were never measured the same way.
+            One problem ORBIX is built around is that aircraft and rocket data comes from
+            different sources with different assumptions. A number on its own is not always
+            useful. An empty mass can mean one configuration in one source and a slightly
+            different one somewhere else, and the units and assumptions behind it are not
+            always shown next to it. Put two vehicles side by side that way and you can end up
+            comparing values that were never measured the same way.
           </p>
           <p>
             I built ORBIX so a vehicle's data, its units, its qualifiers and its sources stay
@@ -136,18 +137,16 @@
         <div>
           <div class="prose">
             <p>
-              This is the part of ORBIX I care about most, and it is the part a screenshot
-              hides. A vehicle in ORBIX is not a page of text. It is a configuration: a set of
-              values, each with its unit, its qualifier, and the source it came from. The
-              profile pages, the comparison engine and the mission tools all read from that
-              same configuration.
+              This is the part of ORBIX a screenshot hides. A vehicle in ORBIX is not a page of
+              text. It is a configuration: a set of values, each with its unit, its qualifier,
+              and the source it came from. The profile pages, the comparison engine and the
+              mission tools all read from that same configuration.
             </p>
             <p>
               That is what makes the comparison honest. When the table says an F-22 has an
               empty mass of 43,340 lb, it also says that value is an approximate public figure,
               and it will not quietly compare it against a nominal value from another aircraft
-              without telling you. Getting that right took longer than building the pages that
-              display it.
+              without telling you.
             </p>
           </div>
 
@@ -250,14 +249,14 @@
               Because everything reads from the same vehicle configurations and the same
               calculation code, a change in one place can reach a long way. Adjust how a unit
               is handled and you have potentially touched every profile, the comparison engine,
-              and half the Lab. Once ORBIX passed a certain size I could not check that by
-              clicking through the app, so I let the tests do it.
+              and half the Lab. At that size, checking the effect by clicking through the
+              application is no longer practical, so the tests do it instead.
             </p>
             <p>
               The unit tests cover the calculations and the data handling. The browser tests
               drive the real interface, including an accessibility suite and a visual set that
-              catches layout changes I did not mean to make. All of it runs in GitHub Actions,
-              and the build has to pass before anything reaches Vercel.
+              catches unintended layout changes. All of it runs in GitHub Actions, and the
+              build has to pass before anything reaches Vercel.
             </p>
           </div>
 
@@ -291,25 +290,24 @@
     <section class="section" aria-labelledby="ox-learned">
       <div class="wrap section__grid">
         <div class="section__rail">
-          <h2 class="section__title" id="ox-learned">What I learned</h2>
+          <h2 class="section__title" id="ox-learned">What the project changed</h2>
         </div>
         <div>
           <div class="prose">
             <p>
-              The biggest change as ORBIX grew was that I could not treat every page as its own
-              small project anymore. The same vehicle data and the same calculations were being
-              used in several places, so changing one thing could break something I was not
-              even looking at.
+              As ORBIX grew, each page stopped being its own small project. The same vehicle
+              data and the same calculations end up used in several places, so changing one
+              thing can break something on a page nowhere near the change.
             </p>
             <p>
-              That is also why I started relying much more on tests. By the end I was using
-              them to check calculations, browser behavior, accessibility and visual changes,
-              instead of trying to click through the whole application myself.
+              That is why the project leans on automated tests. Manually checking every part of
+              the application stopped being practical, so the tests cover the calculations,
+              browser behavior, accessibility and visual changes instead.
             </p>
             <p>
-              The other thing that stuck was keeping units and sources attached to the values
-              rather than recording them somewhere separate. It is what made the comparisons
-              trustworthy, and it caught mistakes I would not have noticed otherwise.
+              Keeping units and sources attached to the values, rather than recorded somewhere
+              separate, is what makes the comparisons trustworthy. It also catches mistakes
+              that are easy to miss by eye.
             </p>
           </div>
 
