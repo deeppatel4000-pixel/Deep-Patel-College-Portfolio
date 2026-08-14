@@ -31,89 +31,130 @@
   <main id="main">
     <section class="hero" aria-labelledby="hero-name">
       <div class="wrap hero__inner">
-        <div class="hero__lead">
-          <p class="eyebrow">Chelmsford, Massachusetts</p>
-          <h1 class="hero__name" id="hero-name">Deep Patel</h1>
-          <div class="hero__body">
-            <p>
-              I am a senior at Chelmsford High School. Most of my work sits in two places:
-              rocket propulsion — sizing, modeling, and simulating a supersonic nozzle — and
-              software, most recently <strong>ORBIX</strong>, an aerospace web application I
-              designed and built.
-            </p>
-            <p>
-              Propulsion, CFD, and CAD hold my attention because they are where a number on
-              paper becomes geometry you can print, mesh, and be wrong about.
-            </p>
-          </div>
+        <h1 class="hero__name" id="hero-name">Deep Patel</h1>
+        <div class="hero__body">
+          <p>
+            I design rocket nozzles and build software. Last spring I sized a Mach 3.5 bell
+            nozzle from NASA CEA data, wrote it as a parametric shell, meshed it, and watched
+            the solver blow up at iteration 24. This year I built and shipped
+            <strong>ORBIX</strong>, an aerospace application with eleven working surfaces.
+          </p>
+          <p>
+            Propulsion, CFD, and CAD hold my attention because they are where a number on
+            paper becomes geometry you can print, mesh, and be wrong about.
+          </p>
         </div>
-
-        <dl class="hero__facts">
-          <div>
-            <dt>School</dt>
-            <dd>Chelmsford High School</dd>
-          </div>
-          <div>
-            <dt>Class of</dt>
-            <dd>2027</dd>
-          </div>
-          <div>
-            <dt>GPA</dt>
-            <dd>4.1</dd>
-          </div>
-          <div>
-            <dt>Focus</dt>
-            <dd>Propulsion, CFD, CAD, software</dd>
-          </div>
-        </dl>
+        <p class="hero__context">
+          Chelmsford High School <span aria-hidden="true">·</span> Senior
+          <span aria-hidden="true">·</span> Class of 2027 <span aria-hidden="true">·</span> GPA 4.1
+        </p>
       </div>
     </section>
 
-    <section class="section" id="work" aria-labelledby="work-title">
-      <div class="wrap section__grid">
-        <div class="section__rail">
-          <h2 class="section__title" id="work-title">Work</h2>
-          <p class="section__note">Two projects, written up in full.</p>
+    <section id="work" aria-labelledby="work-title">
+      <h2 class="visually-hidden" id="work-title">Work</h2>
+
+      <article class="feature" aria-labelledby="orbix-title">
+        <div class="wrap">
+          <div class="feature__head">
+            <p class="feature__index" aria-hidden="true">01</p>
+            <div class="feature__intro">
+              <p class="feature__kind">Software · Aerospace web application · 2026</p>
+              <h3 class="feature__title" id="orbix-title">ORBIX</h3>
+              <p class="feature__summary">
+                ORBIX connects landmark aircraft and launch vehicles to the orbital mechanics,
+                entry physics, and thermal analysis behind them, with every value traced back
+                to a published source. Five aircraft, five launch vehicles, a comparison
+                engine, an engineering laboratory of 33 modules, mission control and replay,
+                a showcase, and a learning section — eleven surfaces in all.
+              </p>
+              <p class="feature__links">
+                <a class="link-arrow" href="projects/orbix/">Read the case study</a>
+                <a class="link-arrow" href="https://orbix-aerospace.vercel.app" rel="noopener">Open the live app</a>
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div class="work-list">
-          <article class="work-entry">
-            <p class="work-entry__index">
-              <span>01</span>
-              <span class="work-entry__kind">Software · Web application</span>
-            </p>
-            <h3 class="work-entry__title"><a href="projects/orbix/">ORBIX</a></h3>
-            <p class="work-entry__summary">
-              An aerospace application built around exploring real vehicles: aircraft and
-              rocket profiles, side-by-side comparison, an engineering lab, mission control
-              and replay, and a research section. Designed, built, and deployed.
-            </p>
-            <p class="work-entry__tools">Live at orbix-aerospace.vercel.app</p>
-            <p class="work-entry__links">
-              <a class="link-arrow" href="projects/orbix/">Read the case study</a>
-              <a class="link-arrow" href="https://orbix-aerospace.vercel.app" rel="noopener">Open the live app</a>
-            </p>
-          </article>
+        <figure class="feature__figure">
+          <div class="wrap">
+            <img
+              src="assets/orbix/orbix-launch-registry.webp"
+              alt="The ORBIX launch vehicle registry: Falcon 9, Falcon Heavy, and Saturn V shown as cards with photographs, orbit classes, liftoff thrust, and stage counts."
+              width="1585" height="1090" fetchpriority="high" decoding="async"
+            >
+            <figcaption>
+              The launch vehicle registry. Each card carries the vehicle's orbit classes,
+              liftoff thrust, and stage count, and opens into a full engineering profile.
+            </figcaption>
+          </div>
+        </figure>
+      </article>
 
-          <article class="work-entry">
-            <p class="work-entry__index">
-              <span>02</span>
-              <span class="work-entry__kind">Engineering · Design and analysis</span>
+      <article class="feature feature--tinted" aria-labelledby="nozzle-title">
+        <div class="wrap feature__split">
+          <div class="feature__panel">
+            <p class="feature__index" aria-hidden="true">02</p>
+            <p class="feature__kind">Engineering · Design and analysis · April 2026</p>
+            <h3 class="feature__title" id="nozzle-title">Optimized Bell Nozzle</h3>
+            <p class="feature__summary">
+              A Mach 3.5 LOX/RP-1 nozzle for a 100 bar chamber, sized from NASA CEA data,
+              written as an OpenSCAD parametric shell, meshed and run in OpenFOAM, then
+              printed inverted so the parabolic wall supports itself. The solve diverged at
+              iteration 24. Working out why is the part I would defend.
             </p>
-            <h3 class="work-entry__title"><a href="projects/bell-nozzle/">Optimized Bell Nozzle</a></h3>
-            <p class="work-entry__summary">
-              A Mach 3.5 LOX/RP-1 nozzle sized from NASA CEA data for a 100 bar chamber and
-              a 0.7 bar exit, drawn as a parametric shell and meshed for a compressible
-              solver. The solve diverged around iteration 24. Working out why it diverged
-              turned out to be the useful part of the project.
+
+            <p class="pull-quote">
+              Area ratio 13.8. Isentropic theory for Mach 3.5 at <span class="nowrap">γ = 1.2</span>
+              wants 13.77.
             </p>
-            <p class="work-entry__tools">NASA CEA · OpenSCAD · OpenFOAM · FDM printing</p>
-            <p class="work-entry__links">
+
+            <dl class="spec">
+              <div>
+                <dt>Propellants</dt>
+                <dd>LOX / RP-1, O/F 2.56</dd>
+              </div>
+              <div>
+                <dt>Chamber</dt>
+                <dd>100 bar, 3615 K</dd>
+              </div>
+              <div>
+                <dt>Exit</dt>
+                <dd>0.7 bar at 3 km</dd>
+              </div>
+              <div>
+                <dt>Throat / exit radius</dt>
+                <dd>5.0 mm / 18.55 mm</dd>
+              </div>
+              <div>
+                <dt>Bell length</dt>
+                <dd>45.0 mm</dd>
+              </div>
+              <div>
+                <dt>Tools</dt>
+                <dd>NASA CEA, OpenSCAD, OpenFOAM, FDM</dd>
+              </div>
+            </dl>
+
+            <p class="feature__links">
               <a class="link-arrow" href="projects/bell-nozzle/">Read the case study</a>
             </p>
-          </article>
+          </div>
+
+          <figure class="feature__aside">
+            <img
+              src="assets/nozzle/nozzle-print-orientation.webp"
+              alt="Cross-section of the nozzle in two build orientations, showing the throat marked as the sonic point, self-supporting walls, and a 37.1 mm exit diameter sitting flat on the FDM build plate."
+              width="682" height="384" decoding="async"
+            >
+            <figcaption>
+              From my design report: printing the nozzle inverted, exit face down, so the
+              parabolic wall is its own support and no sacrificial material touches the
+              expansion curve.
+            </figcaption>
+          </figure>
         </div>
-      </div>
+      </article>
     </section>
 
     <section class="section" id="about" aria-labelledby="about-title">
@@ -123,7 +164,7 @@
         </div>
 
         <div>
-          <div class="prose">
+          <div class="prose prose--lead">
             <p>
               The part of engineering I like is where an idea stops being a sketch. Sizing a
               nozzle is arithmetic until you have to pick a wall thickness, choose a print
@@ -131,143 +172,110 @@
               the residuals stop falling.
             </p>
             <p>
-              Outside that: high jump and hurdles for Chelmsford Track and Field, VEX robotics,
-              the AI club, and volunteering with BAPS since 2017 — including three months of
+              I am just as happy in software. ORBIX started because I wanted to compare two
+              launch vehicles properly and could not find anywhere that kept the units, the
+              configuration, and the source attached to the numbers.
+            </p>
+            <p>
+              Away from a screen: high jump and hurdles for Chelmsford Track and Field, VEX
+              robotics, and volunteering with BAPS since 2017 — including three months of
               full-time fabrication work cutting architectural components on CNC and hot-wire
               machines.
             </p>
           </div>
-          <p class="work-entry__tools about__tools">
-            Tools: Java · Fusion 360 · OpenSCAD · OpenFOAM · NASA CEA · CorelDRAW and Illustrator for CNC
-          </p>
+
+          <dl class="inline-facts">
+            <div>
+              <dt>Coursework</dt>
+              <dd>AP Computer Science A, Physics Honors, Pre-Calculus, Advanced Engineering Principles and 3D Design</dd>
+            </div>
+            <div>
+              <dt>Recognition</dt>
+              <dd>National Honor Society, inducted March 2026</dd>
+            </div>
+            <div>
+              <dt>Tools</dt>
+              <dd>Java, OpenSCAD, OpenFOAM, NASA CEA, Fusion 360, CorelDRAW and Illustrator for CNC</dd>
+            </div>
+          </dl>
         </div>
       </div>
     </section>
 
-    <section class="section" id="experience" aria-labelledby="experience-title">
-      <div class="wrap section__grid">
-        <div class="section__rail">
-          <h2 class="section__title" id="experience-title">Experience</h2>
-          <p class="section__note">Work, volunteering, and teams.</p>
+    <section class="section section--tinted" id="experience" aria-labelledby="experience-title">
+      <div class="wrap">
+        <h2 class="section__title section__title--wide" id="experience-title">Things I have done</h2>
+
+        <div class="groups">
+          <section class="group" aria-labelledby="group-leadership">
+            <h3 class="group__title" id="group-leadership">Leadership and service</h3>
+            <div class="group__lead">
+              <p class="group__role">Youth Activities Coordinator, BAPS Bal Mandal</p>
+              <p class="group__when">Lowell, MA · 2022 — now</p>
+              <p class="group__detail">
+                I run youth events at 1,000+ participant scale and write the assembly programs
+                that go with them — which mostly means planning something for a room of kids
+                who did not choose to be there, and making it work anyway.
+              </p>
+            </div>
+            <p class="group__also">
+              Also: volunteer with BAPS Charities since 2017 — health awareness events, food
+              drives, community cleanups, and event logistics.
+            </p>
+          </section>
+
+          <section class="group" aria-labelledby="group-technical">
+            <h3 class="group__title" id="group-technical">Technical and work</h3>
+            <div class="group__lead">
+              <p class="group__role">Full-Time Volunteer, BAPS Akshardham</p>
+              <p class="group__when">Robbinsville, NJ · Jul — Oct 2023</p>
+              <p class="group__detail">
+                Three months of digital fabrication on a large cultural build: drawing
+                architectural components in CorelDRAW and Illustrator, producing CNC-ready
+                files, then running the CNC and hot-wire machines that cut them from wood,
+                PVC, and styrofoam. The first time my drawings had consequences in material.
+              </p>
+            </div>
+            <p class="group__also">
+              Also: Technical Operations Intern at Stash Proxies (2021 — 2022), monitoring
+              proxy infrastructure for 500+ monthly active users; and Fulfillment and Logistics
+              Associate at Dasbhav LLC (2020 — 2022), where I reworked the packaging process to
+              cut errors.
+            </p>
+          </section>
+
+          <section class="group" aria-labelledby="group-teams">
+            <h3 class="group__title" id="group-teams">Teams and activities</h3>
+            <div class="group__lead">
+              <p class="group__role">Student Athlete, Chelmsford Track and Field</p>
+              <p class="group__when">2023 — now</p>
+              <p class="group__detail">
+                High jump, 55m hurdles, 110m hurdles. Hurdling is the closest thing I do to
+                iterating on a design: the same eleven steps, adjusted slightly, until they
+                stop costing you time.
+              </p>
+            </div>
+            <p class="group__also">
+              Also: VEX Robotics Club (2023 — 2024), building and testing competition robots;
+              and the Artificial Intelligence Club (2025 — now).
+            </p>
+          </section>
         </div>
-
-        <div class="records">
-          <article class="record">
-            <p class="record__when">2022 — now</p>
-            <h3 class="record__role">Youth Activities Coordinator</h3>
-            <p class="record__org">BAPS Bal Mandal · Lowell, MA</p>
-            <p class="record__detail">
-              Run youth events at 1,000+ participant scale and write the assembly programs
-              that go with them.
-            </p>
-          </article>
-
-          <article class="record">
-            <p class="record__when">2023 — now</p>
-            <h3 class="record__role">Student Athlete</h3>
-            <p class="record__org">Chelmsford Track and Field</p>
-            <p class="record__detail">High jump, 55m hurdles, 110m hurdles.</p>
-          </article>
-
-          <article class="record">
-            <p class="record__when">Jul — Oct 2023</p>
-            <h3 class="record__role">Full-Time Volunteer</h3>
-            <p class="record__org">BAPS Akshardham · Robbinsville, NJ</p>
-            <p class="record__detail">
-              Digital fabrication for a large cultural build: drew architectural components in
-              CorelDRAW and Illustrator, produced CNC-ready files, and ran CNC and hot-wire
-              machines to cut them from wood, PVC, and styrofoam.
-            </p>
-          </article>
-
-          <article class="record">
-            <p class="record__when">2021 — 2022</p>
-            <h3 class="record__role">Technical Operations Intern</h3>
-            <p class="record__org">Stash Proxies · Lowell, MA</p>
-            <p class="record__detail">
-              Monitored proxy server infrastructure for 500+ monthly active users and tested
-              IP performance, location targeting, and server health.
-            </p>
-          </article>
-
-          <article class="record">
-            <p class="record__when">2020 — 2022</p>
-            <h3 class="record__role">Fulfillment and Logistics Associate</h3>
-            <p class="record__org">Dasbhav LLC · Lowell, MA</p>
-            <p class="record__detail">
-              Daily shipping and fulfillment, inventory and replenishment reporting, and a
-              packaging process I reworked to cut errors.
-            </p>
-          </article>
-
-          <article class="record">
-            <p class="record__when">2017 — now</p>
-            <h3 class="record__role">Volunteer</h3>
-            <p class="record__org">BAPS Charities · Lowell, MA</p>
-            <p class="record__detail">
-              Health awareness events, food drives, community cleanups, and event logistics.
-            </p>
-          </article>
-
-          <article class="record">
-            <p class="record__when">2025 — now</p>
-            <h3 class="record__role">Member, Artificial Intelligence Club</h3>
-            <p class="record__org">Chelmsford High School</p>
-            <p class="record__detail">Group projects and discussion of where these tools actually work.</p>
-          </article>
-
-          <article class="record">
-            <p class="record__when">2023 — 2024</p>
-            <h3 class="record__role">Member, Robotics Club</h3>
-            <p class="record__org">Chelmsford High School</p>
-            <p class="record__detail">VEX builds: design, testing, and iterating on performance.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="academics" aria-labelledby="academics-title">
-      <div class="wrap section__grid">
-        <div class="section__rail">
-          <h2 class="section__title" id="academics-title">Academics</h2>
-        </div>
-
-        <dl class="facts">
-          <div class="facts__row">
-            <dt>School</dt>
-            <dd>Chelmsford High School, Chelmsford, Massachusetts. Class of 2027.</dd>
-          </div>
-          <div class="facts__row">
-            <dt>GPA</dt>
-            <dd>4.1</dd>
-          </div>
-          <div class="facts__row">
-            <dt>Coursework</dt>
-            <dd>AP Computer Science A, Physics Honors, Pre-Calculus, Advanced Engineering Principles and 3D Design.</dd>
-          </div>
-          <div class="facts__row">
-            <dt>Recognition</dt>
-            <dd>National Honor Society, inducted March 2026.</dd>
-          </div>
-        </dl>
       </div>
     </section>
 
     <section class="section" id="contact" aria-labelledby="contact-title">
-      <div class="wrap section__grid">
-        <div class="section__rail">
-          <h2 class="section__title" id="contact-title">Contact</h2>
-        </div>
-
+      <div class="wrap contact">
         <div>
-          <p class="lede">
+          <h2 class="section__title" id="contact-title">Contact</h2>
+          <p class="contact__note">
             Email is the best way to reach me. I am glad to talk about propulsion, simulation,
             or anything on this site.
           </p>
-          <div class="contact__links">
-            <a href="mailto:deep.patel4000@gmail.com">deep.patel4000@gmail.com</a>
-            <a href="https://www.linkedin.com/in/deep-patel-91ab41378/" rel="noopener">LinkedIn profile</a>
-          </div>
+        </div>
+        <div class="contact__links">
+          <a href="mailto:deep.patel4000@gmail.com">deep.patel4000@gmail.com</a>
+          <a href="https://www.linkedin.com/in/deep-patel-91ab41378/" rel="noopener">LinkedIn profile</a>
         </div>
       </div>
     </section>
