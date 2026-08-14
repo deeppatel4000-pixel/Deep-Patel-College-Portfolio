@@ -824,7 +824,18 @@ a:hover {
 }
 
 .figure__portrait {
-  max-width: 18rem;
+  max-width: min(18rem, 100%);
+}
+
+.figure__portrait-wide {
+  max-width: min(30rem, 100%);
+}
+
+/* dense screenshots reclaim the rail column so their detail stays legible */
+@media (min-width: 62rem) {
+  .figure--wide {
+    margin-left: calc(-1 * (var(--rail) + var(--space-8)));
+  }
 }
 
 /* --- source-derived nozzle figure ----------------------------------------- */
