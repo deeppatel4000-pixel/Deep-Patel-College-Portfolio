@@ -359,7 +359,7 @@ a:hover {
 /* --- sections ------------------------------------------------------------- */
 
 .section {
-  padding-block: clamp(3rem, 7vw, 5.5rem);
+  padding-block: clamp(2.5rem, 7vw, 5.5rem);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -455,8 +455,11 @@ a:hover {
   color: var(--color-muted);
 }
 
-.feature__aside--portrait img {
-  max-width: 20rem;
+.feature__aside.feature__aside--portrait img {
+  max-width: 19rem;
+  margin-inline: auto;
+  border: 0;
+  border-radius: 0;
 }
 
 .feature__head {
@@ -503,6 +506,13 @@ a:hover {
 .feature__aside {
   margin: 0;
   align-self: start;
+}
+
+/* on narrow screens the figure leads, so the project is seen before it is read */
+@media (max-width: 61.99rem) {
+  .feature__aside {
+    order: -1;
+  }
 }
 
 .feature__aside img {
@@ -815,6 +825,115 @@ a:hover {
 
 .figure__portrait {
   max-width: 18rem;
+}
+
+/* --- source-derived nozzle figure ----------------------------------------- */
+
+.nozzle-figure {
+  display: block;
+  width: 100%;
+  max-width: 34rem;
+  height: auto;
+  margin-top: var(--space-5);
+}
+
+.nozzle-figure__solid path {
+  fill: #2b2f34;
+}
+
+.nozzle-figure__cavity path {
+  fill: var(--color-background);
+}
+
+.section--tinted .nozzle-figure__cavity path {
+  fill: var(--color-surface);
+}
+
+.nozzle-figure__axis {
+  stroke: var(--color-muted);
+  stroke-width: 0.4;
+  stroke-dasharray: 3 2 0.6 2;
+}
+
+.nozzle-figure__dim line {
+  stroke: var(--color-accent);
+  stroke-width: 0.4;
+}
+
+.nozzle-figure__dim text,
+.nozzle-figure__note {
+  font-family: var(--font-body);
+  font-size: 4px;
+  fill: var(--color-accent);
+}
+
+.nozzle-figure__note {
+  fill: var(--color-muted);
+}
+
+@media (max-width: 48rem) {
+  .nozzle-figure__dim text,
+  .nozzle-figure__note {
+    font-size: 5.6px;
+  }
+}
+
+/* --- subheads inside long sections ---------------------------------------- */
+
+.subhead {
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--color-text);
+  margin-top: var(--space-7);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.subhead:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.subhead + .prose,
+.subhead + .spec,
+.subhead + .runs {
+  margin-top: var(--space-4);
+}
+
+/* --- run history table ---------------------------------------------------- */
+
+.runs {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--step--1);
+  text-align: left;
+}
+
+.runs th {
+  font-weight: 500;
+  color: var(--color-muted);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border-strong);
+}
+
+.runs td {
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  vertical-align: top;
+}
+
+.runs td:first-child {
+  color: var(--color-muted);
+  white-space: nowrap;
+  padding-right: var(--space-5);
+}
+
+.runs tr:last-child td {
+  color: var(--color-text);
 }
 
 .prose--after-spec {

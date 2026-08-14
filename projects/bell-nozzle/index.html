@@ -63,54 +63,46 @@
         <div class="section__rail">
           <h2 class="section__title" id="nz-why">Why I started it</h2>
         </div>
-        <div class="prose">
-          <p>
-            I started this project while researching the engines and nozzles used on different
-            spacecraft. I wanted to know why their shapes were different, and then I wanted to
-            try designing a more optimal bell nozzle of my own.
-          </p>
-          <p>
-            I also wanted more experience with propulsion work, because it is the field I want
-            to keep learning about. And if the design turned out well enough, I hoped it would
-            be something I could show to engineers who actually work on this.
-          </p>
+        <div>
+          <div class="prose">
+            <p>
+              I started this project while researching the engines and nozzles used on
+              different spacecraft. I wanted to know why their shapes were different, and then
+              I wanted to try designing a more optimal bell nozzle of my own.
+            </p>
+            <p>
+              I also wanted more experience with propulsion work, because it is the field I
+              want to keep learning about. And if the design turned out well enough, I hoped it
+              would be something I could show to engineers who actually work on this.
+            </p>
+          </div>
+
+          <h3 class="subhead">The physics that sets the shape</h3>
+          <div class="prose">
+            <p>
+              A bell nozzle has a converging section, a throat where the flow goes sonic, and a
+              diverging section where the gas keeps speeding up. That last part is the one that
+              confused me at first. Below the throat, a narrowing passage speeds gas up. Above
+              it, only a widening one does.
+            </p>
+            <p>
+              The relation that matters after that is the one between area ratio and exit Mach
+              number for a given ratio of specific heats. You pick the Mach number you want at
+              the exit, and it tells you how much bigger the exit has to be than the throat.
+              I worked my sizing around a LOX/RP-1 case: an oxidiser to fuel ratio of 2.56, a
+              100 bar chamber at about 3615 K, expanding to 0.7 bar at roughly 3 km altitude,
+              with a ratio of specific heats of 1.2 and a molecular weight of 22.65 g/mol. My
+              target was an exit Mach number of 3.5.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--tinted" aria-labelledby="nz-physics">
+    <section class="section" aria-labelledby="nz-design">
       <div class="wrap section__grid">
         <div class="section__rail">
-          <h2 class="section__title" id="nz-physics">Learning the physics</h2>
-        </div>
-        <div class="prose">
-          <p>
-            Before I could draw anything I had to understand what sets the shape. A bell nozzle
-            has a converging section, a throat where the flow goes sonic, and a diverging
-            section where the gas keeps speeding up. That last part is the one that confused me
-            at first. Below the throat, a narrowing passage speeds gas up. Above it, only a
-            widening one does.
-          </p>
-          <p>
-            The relation that matters after that is the one between area ratio and exit Mach
-            number for a given ratio of specific heats. That is what turns a target into a
-            dimension. You pick the Mach number you want at the exit, and the physics tells you
-            how much bigger the exit has to be than the throat.
-          </p>
-          <p>
-            I worked the sizing around a LOX/RP-1 case: an oxidiser to fuel ratio of 2.56, a
-            100 bar chamber at about 3615 K, expanding to 0.7 bar at roughly 3 km altitude,
-            with a ratio of specific heats of 1.2 and a molecular weight of 22.65 g/mol. My
-            target was an exit Mach number of 3.5.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="nz-geometry">
-      <div class="wrap section__grid">
-        <div class="section__rail">
-          <h2 class="section__title" id="nz-geometry">Turning it into geometry</h2>
+          <h2 class="section__title" id="nz-design">Designing the nozzle</h2>
         </div>
         <div>
           <div class="prose">
@@ -131,25 +123,37 @@
           </div>
 
           <figure class="figure">
-            <img
-              src="../../assets/nozzle/nozzle-openscad-render.webp"
-              alt="OpenSCAD render of the bell nozzle, an axisymmetric shell with a wide bell opening that narrows towards the throat and a small flare at the far end."
-              width="644" height="900" loading="lazy" decoding="async"
-              class="figure__portrait"
-            >
-            <figcaption>The nozzle in OpenSCAD, before export.</figcaption>
+            <svg class="nozzle-figure" viewBox="0 0 200 112" role="img" aria-labelledby="nozzle-fig-title">
+              <title id="nozzle-fig-title">Sectioned view of the nozzle drawn from the OpenSCAD profile, with an 8.1 mm throat radius, a 32.32 mm exit radius, an overall height of 84.48 mm and a 2.0 mm wall.</title>
+              <g class="nozzle-figure__solid">
+                <path d="M 100.00,96.48 L 134.34,96.48 L 130.70,77.61 L 125.92,59.79 L 119.44,41.97 L 110.12,24.15 L 122.28,12.00 L 100.00,12.00 Z"/>
+                <path d="M 100.00,96.48 L 65.66,96.48 L 69.30,77.61 L 74.08,59.79 L 80.56,41.97 L 89.88,24.15 L 77.72,12.00 L 100.00,12.00 Z"/>
+              </g>
+              <g class="nozzle-figure__cavity">
+                <path d="M 100.00,96.48 L 132.32,96.48 L 128.67,77.61 L 123.90,59.79 L 117.42,41.97 L 108.10,24.15 L 120.25,12.00 L 100.00,12.00 Z"/>
+                <path d="M 100.00,96.48 L 67.68,96.48 L 71.33,77.61 L 76.10,59.79 L 82.58,41.97 L 91.90,24.15 L 79.75,12.00 L 100.00,12.00 Z"/>
+              </g>
+              <line class="nozzle-figure__axis" x1="100.00" y1="5.00" x2="100.00" y2="103.48"/>
+              <g class="nozzle-figure__dim">
+                <line x1="58.66" y1="96.48" x2="58.66" y2="12.00"/>
+                <line x1="57.06" y1="96.48" x2="60.26" y2="96.48"/>
+                <line x1="57.06" y1="12.00" x2="60.26" y2="12.00"/>
+                <text x="55.66" y="54.24" text-anchor="end">84.48</text>
+                <line x1="100.00" y1="101.48" x2="132.32" y2="101.48"/>
+                <line x1="100.00" y1="99.88" x2="100.00" y2="103.08"/>
+                <line x1="132.32" y1="99.88" x2="132.32" y2="103.08"/>
+                <text x="116.16" y="106.98" text-anchor="middle">exit r 32.32</text>
+                <line x1="100.00" y1="24.15" x2="118.12" y2="24.15"/>
+                <text x="120.12" y="25.65" text-anchor="start">throat r 8.1</text>
+              </g>
+            </svg>
+            <figcaption>
+              Cross-section drawn straight from the six profile points in my OpenSCAD file, at
+              the same 0.81 scale I printed at. Dimensions in millimetres.
+            </figcaption>
           </figure>
-        </div>
-      </div>
-    </section>
 
-    <section class="section section--tinted" aria-labelledby="nz-actual">
-      <div class="wrap section__grid">
-        <div class="section__rail">
-          <h2 class="section__title" id="nz-actual">The actual nozzle</h2>
-          <p class="section__note">Measured from the model I exported and printed.</p>
-        </div>
-        <div>
+          <h3 class="subhead">The geometry I ended up with</h3>
           <dl class="spec">
             <div>
               <dt>Throat radius</dt>
@@ -165,7 +169,7 @@
             </div>
             <div>
               <dt>Wall thickness</dt>
-              <dd>2.5 mm</dd>
+              <dd>2.0 mm</dd>
             </div>
             <div>
               <dt>Area ratio</dt>
@@ -197,33 +201,27 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="nz-setup">
+    <section class="section section--tinted" aria-labelledby="nz-setup">
       <div class="wrap section__grid">
         <div class="section__rail">
-          <h2 class="section__title" id="nz-setup">Preparing the CFD model</h2>
-        </div>
-        <div class="prose">
-          <p>
-            A solver does not want the nozzle. It wants the gas inside it. So I made a second
-            OpenSCAD model of just the internal flow path, with no walls, and exported that as
-            the geometry to simulate.
-          </p>
-          <p>
-            That went into SimFlow, which is the interface I used to set up and run the case.
-            The solver underneath it is OpenFOAM, and I used ParaView to look at the results.
-            SimFlow's free version caps a mesh at 200,000 nodes on a single core, and that
-            limit shaped everything that came after.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--tinted" aria-labelledby="nz-mysetup">
-      <div class="wrap section__grid">
-        <div class="section__rail">
-          <h2 class="section__title" id="nz-mysetup">My simulation setup</h2>
+          <h2 class="section__title" id="nz-setup">Preparing the simulation</h2>
         </div>
         <div>
+          <div class="prose">
+            <p>
+              A solver does not want the nozzle. It wants the gas inside it. So I made a second
+              OpenSCAD model of just the internal flow path, with no walls, and exported that
+              as the geometry to simulate.
+            </p>
+            <p>
+              That went into SimFlow, which is the interface I used to set up and run the case.
+              The solver underneath it is OpenFOAM, and I used ParaView to look at the results.
+              SimFlow's free version caps a mesh at 200,000 nodes on a single core, and that
+              limit shaped everything that came after.
+            </p>
+          </div>
+
+          <h3 class="subhead">Case setup</h3>
           <dl class="spec">
             <div>
               <dt>Interface</dt>
@@ -265,63 +263,66 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="nz-failing">
+    <section class="section" aria-labelledby="nz-debug">
       <div class="wrap section__grid">
         <div class="section__rail">
-          <h2 class="section__title" id="nz-failing">What kept failing</h2>
-        </div>
-        <div class="prose">
-          <p>
-            The early runs did not really run. OpenFOAM would abort inside the thermodynamics
-            and report a temperature of about minus 1×10<sup>17</sup> K, which is the solver
-            saying the energy equation produced something meaningless and it will not carry on.
-            That happened within one or two iterations.
-          </p>
-          <p>
-            At first I blamed the mesh, because it was obviously coarse. Then I went back
-            through the pressure and temperature settings, then the boundary conditions, then
-            the mesh again. Every change gave me another test case, and I ran a lot of them
-            across one evening. Eventually I added a temperature limiter to stop the solver
-            aborting outright, which kept the case alive much longer. A limiter is a way of
-            surviving the symptom, though, not a fix for whatever was causing it.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--tinted" aria-labelledby="nz-history">
-      <div class="wrap section__grid">
-        <div class="section__rail">
-          <h2 class="section__title" id="nz-history">How far each run got</h2>
-          <p class="section__note">Reconstructed from screenshots I took as I went.</p>
+          <h2 class="section__title" id="nz-debug">Debugging the CFD</h2>
+          <p class="section__note">Where most of the project actually went.</p>
         </div>
         <div>
-          <dl class="spec">
-            <div>
-              <dt>2 April, 22:23</dt>
-              <dd>Aborted at iteration 2, fatal error in the temperature solve</dd>
-            </div>
-            <div>
-              <dt>2 April, 22:28</dt>
-              <dd>Same abort, with 1000 iterations requested</dd>
-            </div>
-            <div>
-              <dt>2 April, 23:03</dt>
-              <dd>Iteration 1, laminar case, no limiters</dd>
-            </div>
-            <div>
-              <dt>2 April, 23:19</dt>
-              <dd>Iteration 2, continuity error already growing</dd>
-            </div>
-            <div>
-              <dt>2 April, 23:29</dt>
-              <dd>Iteration 20, with the temperature limiter in place</dd>
-            </div>
-            <div>
-              <dt>3 April, 16:49</dt>
-              <dd>Iteration 24, the furthest any run got, then it diverged</dd>
-            </div>
-          </dl>
+          <h3 class="subhead">What I tried</h3>
+          <div class="prose">
+            <p>
+              The early runs did not really run. OpenFOAM would abort inside the
+              thermodynamics and report a temperature of about minus 1×10<sup>17</sup> K, which
+              is the solver saying the energy equation produced something meaningless and it
+              will not carry on. That happened within one or two iterations.
+            </p>
+            <p>
+              At first I blamed the mesh, because it was obviously coarse. Then I went back
+              through the pressure and temperature settings, then the boundary conditions, then
+              the mesh again. Every change gave me another test case, and I ran a lot of them
+              across one evening. Eventually I added a temperature limiter to stop the solver
+              aborting outright, which kept the case alive much longer. A limiter is a way of
+              surviving the symptom, though, not a fix for whatever was causing it.
+            </p>
+          </div>
+
+          <h3 class="subhead">Run history</h3>
+          <table class="runs">
+            <thead>
+              <tr>
+                <th scope="col">When</th>
+                <th scope="col">How far it got</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2 April, 22:23</td>
+                <td>Aborted at iteration 2, fatal error in the temperature solve</td>
+              </tr>
+              <tr>
+                <td>2 April, 22:28</td>
+                <td>Same abort, with 1000 iterations requested</td>
+              </tr>
+              <tr>
+                <td>2 April, 23:03</td>
+                <td>Iteration 1, laminar case, no limiters</td>
+              </tr>
+              <tr>
+                <td>2 April, 23:19</td>
+                <td>Iteration 2, continuity error already growing</td>
+              </tr>
+              <tr>
+                <td>2 April, 23:29</td>
+                <td>Iteration 20, with the temperature limiter in place</td>
+              </tr>
+              <tr>
+                <td>3 April, 16:49</td>
+                <td>Iteration 24, the furthest any run got, then it diverged</td>
+              </tr>
+            </tbody>
+          </table>
 
           <div class="prose prose--after-spec">
             <p>
@@ -330,38 +331,32 @@
               survived into the twenties, without ever reaching an answer.
             </p>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section" aria-labelledby="nz-evidence">
-      <div class="wrap section__grid">
-        <div class="section__rail">
-          <h2 class="section__title" id="nz-evidence">What the evidence supports</h2>
-        </div>
-        <div class="prose">
-          <p>
-            I want to be exact here, because it would be easy to imply more than I have. The
-            simulation did not produce a valid flow solution. No velocity, Mach, or pressure
-            field was ever written to disk. When I open the case in ParaView the only time step
-            available is zero, which is the mesh before anything was solved. I did not
-            numerically confirm choking at the throat, I did not confirm supersonic expansion,
-            and I have nothing that would let me say whether the nozzle was over or under
-            expanded.
-          </p>
-          <p>
-            In the final run the solver reported a continuity error of order
-            10<sup>49</sup> and pressures of order 10<sup>95</sup>, both positive and negative.
-            Those are not small errors. They are the numbers a case produces on its way to
-            falling apart. The residual plot from that run shows velocity and enthalpy
-            flattening out around 10<sup>-2</sup> while the pressure residual sits at 1, which
-            is a case that is not converging rather than one that is nearly there.
-          </p>
-          <p>
-            So the CFD here is a record of a setup and a failure, not a validation of the
-            design. The geometry check earlier on this page is the only quantitative result I
-            would stand behind.
-          </p>
+          <h3 class="subhead">What the results actually showed</h3>
+          <div class="prose">
+            <p>
+              I want to be exact here, because it would be easy to imply more than I have. The
+              simulation did not produce a valid flow solution. No velocity, Mach, or pressure
+              field was ever written to disk. When I open the case in ParaView the only time
+              step available is zero, which is the mesh before anything was solved. I did not
+              numerically confirm choking at the throat, I did not confirm supersonic
+              expansion, and I have nothing that would let me say whether the nozzle was over
+              or under expanded.
+            </p>
+            <p>
+              In the final run the solver reported a continuity error of order
+              10<sup>49</sup> and pressures of order 10<sup>95</sup>, both positive and
+              negative. Those are not small errors. They are the numbers a case produces on its
+              way to falling apart. The residual plot from that run shows velocity and enthalpy
+              flattening out around 10<sup>-2</sup> while the pressure residual sits at 1,
+              which is a case that is not converging rather than one that is nearly there.
+            </p>
+            <p>
+              So the CFD here is a record of a setup and a failure, not a validation of the
+              design. The geometry check earlier on this page is the only quantitative result I
+              would stand behind.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -387,6 +382,7 @@
             </p>
           </div>
 
+          <h3 class="subhead">Print settings</h3>
           <dl class="spec">
             <div>
               <dt>Printer</dt>
@@ -413,25 +409,19 @@
               <dd>Inverted, exit face on the build plate</dd>
             </div>
           </dl>
+
+          <h3 class="subhead">The printed part</h3>
+          <div class="prose">
+            <p>
+              The nozzle printed successfully and I still have the finished part.
+            </p>
+            <p class="note-inline">I will add a photograph of it here once I pull it from my project photos.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="nz-prototype">
-      <div class="wrap section__grid">
-        <div class="section__rail">
-          <h2 class="section__title" id="nz-prototype">The printed part</h2>
-        </div>
-        <div class="prose">
-          <p>
-            The nozzle printed successfully and I still have the finished part.
-          </p>
-          <p class="note-inline">I will add a photograph of it here once I pull it from my project photos.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--tinted" aria-labelledby="nz-next">
+    <section class="section" aria-labelledby="nz-next">
       <div class="wrap section__grid">
         <div class="section__rail">
           <h2 class="section__title" id="nz-next">What I would change</h2>
