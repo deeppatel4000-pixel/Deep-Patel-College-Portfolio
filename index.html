@@ -34,15 +34,15 @@
         <h1 class="hero__name" id="hero-name">Deep Patel</h1>
         <div class="hero__body">
           <p>
-            I work on propulsion projects and build software. Last spring I drew a bell nozzle,
-            meshed it, and spent hours testing the solver while it kept falling over. The best
-            run got to iteration 24. This year I designed and built <strong>ORBIX</strong>, an
-            aerospace web app with vehicle comparisons, engineering tools, and mission
-            simulations.
+            I work on propulsion projects and build software. In spring 2026 I drew a bell
+            nozzle, meshed it, and spent hours testing the solver while it kept falling over.
+            The best run got to iteration 24. Later in 2026 I designed and built
+            <strong>ORBIX</strong>, an aerospace web app with vehicle comparisons, engineering
+            tools, and mission simulations.
           </p>
           <p>
-            I keep coming back to propulsion, CFD, and CAD because that's where a number on
-            paper turns into geometry you can print, mesh, and be wrong about.
+            Propulsion, CFD, and CAD are where a number on paper turns into geometry you can
+            print, mesh, and be wrong about.
           </p>
         </div>
         <p class="hero__context">
@@ -65,9 +65,9 @@
               <p class="feature__summary">
                 ORBIX connects real aircraft and launch vehicles to the orbital mechanics,
                 entry physics, and thermal analysis behind them, and every number stays
-                attached to the source it came from. There are eleven surfaces in it: five
-                aircraft, five launch vehicles, a comparison engine, an engineering lab with
-                33 modules, mission control and replay, a showcase, and a learning section.
+                attached to the source it came from. It covers 10 vehicles, five aircraft and
+                five launch vehicles, that you can compare side by side, an Engineering Lab of
+                33 modules, and mission tools that simulate a flight and replay it.
               </p>
               <p class="feature__links">
                 <a class="link-arrow" href="projects/orbix/">Read the case study</a>
@@ -119,13 +119,13 @@
 
           <figure class="feature__aside feature__aside--portrait">
             <img
-              src="assets/nozzle/nozzle-model-render.webp"
-              alt="Render of the bell nozzle model: an axisymmetric shell with a narrow inlet cup at the top, a throat below it, and a wide bell opening out to the exit."
-              width="900" height="1303" decoding="async"
+              src="assets/nozzle/bell-nozzle-printed.webp"
+              alt="Gray 3D-printed PLA bell nozzle prototype standing on its exit face, with the narrow inlet cup at the top, the throat below it, and the bell widening to the exit at the base. FDM layer lines run across the whole surface."
+              width="1122" height="1402" decoding="async"
             >
             <figcaption>
-              The nozzle, rendered from the OpenSCAD model I printed. One six-point profile
-              revolved around the centreline, 84.48 mm tall.
+              The finished PLA prototype, printed from the OpenSCAD geometry. One six-point
+              profile revolved around the centerline, 84.48 mm tall.
             </figcaption>
           </figure>
         </div>
@@ -141,21 +141,11 @@
         <div>
           <div class="prose prose--lead">
             <p>
-              The part of engineering I like is the point where a design has to become a real
-              object. Sizing a nozzle is arithmetic right up until you have to pick a wall
-              thickness, decide which way up to print it, and work out what to do when the
-              residuals stop falling.
-            </p>
-            <p>
-              I like software just as much. ORBIX started because I wanted to compare two
-              launch vehicles properly and couldn't find anywhere that kept the units, the
-              configuration, and the source attached to the numbers.
-            </p>
-            <p>
-              Away from a screen I do high jump and hurdles for Chelmsford Track and Field,
-              VEX robotics, and I have volunteered with BAPS since 2017. That includes three
-              months of full-time fabrication work cutting architectural components on CNC and
-              hot-wire machines.
+              My projects move between calculation, software, CAD, simulation, and fabrication.
+              On the Bell Nozzle that meant sizing the geometry, setting up the CFD case, and
+              working out how to print the part. ORBIX took the software side much further,
+              with vehicle data, engineering calculations, mission tools, and automated tests
+              across the app.
             </p>
           </div>
 
@@ -169,8 +159,8 @@
               <dd>National Honor Society, inducted March 2026</dd>
             </div>
             <div>
-              <dt>Tools</dt>
-              <dd>Java, OpenSCAD, OpenFOAM, NASA CEA, Fusion 360, CorelDRAW and Illustrator for CNC</dd>
+              <dt>Selected tools</dt>
+              <dd>TypeScript, React, Next.js, Java, OpenSCAD, SimFlow, OpenFOAM, Fusion 360, CorelDRAW and Illustrator for CNC</dd>
             </div>
           </dl>
         </div>
@@ -186,53 +176,85 @@
             <h3 class="group__title" id="group-leadership">Leadership and service</h3>
             <div class="group__lead">
               <p class="group__role">Youth Activities Coordinator, BAPS Bal Mandal</p>
-              <p class="group__when">Lowell, MA · 2022 to now</p>
+              <p class="group__when">Lowell, MA · August 2022 to present</p>
               <p class="group__detail">
-                I help run youth events at 1,000+ participant scale and write the assembly
-                programs that go with them. Most of the work is planning a program that holds
-                the attention of a large group, then organising the people who deliver it.
+                I help plan youth events with 1,000+ participants and write the assembly
+                programs used during them. That covers the program itself, the interactive
+                discussions and leadership activities inside it, and organizing the people who
+                deliver it.
               </p>
             </div>
-            <p class="group__also">
-              Also a volunteer with BAPS Charities since 2017: health awareness events, food
-              drives, community cleanups, and event logistics.
-            </p>
+            <div class="group__also prose">
+              <p>
+                <strong>Volunteer, BAPS Charities</strong> · Lowell, MA · June 2017 to present
+              </p>
+              <p>
+                Health awareness events, community cleanups, and food drives. On event days
+                that means setup, registration, crowd coordination, and outreach.
+              </p>
+            </div>
           </section>
 
           <section class="group" aria-labelledby="group-technical">
             <h3 class="group__title" id="group-technical">Technical and work</h3>
             <div class="group__lead">
               <p class="group__role">Full-Time Volunteer, BAPS Akshardham</p>
-              <p class="group__when">Robbinsville, NJ · Jul to Oct 2023</p>
+              <p class="group__when">Robbinsville, NJ · July 2023 to October 2023</p>
               <p class="group__detail">
-                Three months of digital fabrication on a large cultural build. I drew
-                architectural components in CorelDRAW and Illustrator, turned them into
-                CNC-ready files, then ran the CNC and hot-wire machines that cut them from
-                wood, PVC, and styrofoam.
+                Full-time digital fabrication on a large cultural build. I drew architectural
+                components in CorelDRAW and Adobe Illustrator, turned those drawings into
+                CNC-ready files, then ran the industrial CNC cutting systems and hot-wire
+                machinery that cut the components from wood, PVC, and styrofoam. I worked on
+                both sides of the process, from preparing the drawings and machine files to
+                operating the equipment that cut the components.
               </p>
             </div>
-            <p class="group__also">
-              Also Technical Operations Intern at Stash Proxies (2021 to 2022), monitoring
-              proxy infrastructure for 500+ monthly active users, and Fulfillment and Logistics
-              Associate at Dasbhav LLC (2020 to 2022), where I reworked the packaging process
-              to cut errors.
-            </p>
+            <div class="group__also prose">
+              <p>
+                <strong>Technical Operations Intern, Stash Proxies</strong> · Lowell, MA ·
+                January 2021 to January 2022
+              </p>
+              <p>
+                Monitored proxy infrastructure serving 500+ monthly active users, and helped
+                test IP performance, targeting accuracy, and server health.
+              </p>
+              <p>
+                <strong>Fulfillment &amp; Logistics Associate, Dasbhav LLC</strong> ·
+                Lowell, MA · November 2020 to January 2022
+              </p>
+              <p>
+                Shipping, packaging, labeling, pickups, tracking, inventory, and replenishment
+                reports. When I found inefficiencies in how orders were put together, I set up
+                a more streamlined packaging procedure.
+              </p>
+            </div>
           </section>
 
           <section class="group" aria-labelledby="group-teams">
             <h3 class="group__title" id="group-teams">Teams and activities</h3>
             <div class="group__lead">
               <p class="group__role">Student Athlete, Chelmsford Track and Field</p>
-              <p class="group__when">2023 to now</p>
+              <p class="group__when">November 2023 to present</p>
               <p class="group__detail">
                 I compete in the high jump, the 55m hurdles, and the 110m hurdles, indoor and
                 outdoor season.
               </p>
             </div>
-            <p class="group__also">
-              Also VEX Robotics Club (2023 to 2024), building and testing competition robots,
-              and the Artificial Intelligence Club (2025 to now).
-            </p>
+            <div class="group__also prose">
+              <p>
+                <strong>Robotics Club</strong> · September 2023 to June 2024
+              </p>
+              <p>
+                Designed, built, and tested robots for VEX Robotics competitions.
+              </p>
+              <p>
+                <strong>Artificial Intelligence Club</strong> · September 2025 to present
+              </p>
+              <p>
+                Group discussions about AI tools and where they get used, and hands-on projects
+                built with other members.
+              </p>
+            </div>
           </section>
         </div>
       </div>
