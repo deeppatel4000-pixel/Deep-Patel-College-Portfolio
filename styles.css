@@ -508,12 +508,8 @@ a:hover {
   align-self: start;
 }
 
-/* on narrow screens the figure leads, so the project is seen before it is read */
-@media (max-width: 61.99rem) {
-  .feature__aside {
-    order: -1;
-  }
-}
+/* the figure follows the text in source order, so the project is introduced
+   before its evidence when the columns stack */
 
 .feature__aside img {
   width: 100%;
