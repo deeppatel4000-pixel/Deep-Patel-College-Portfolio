@@ -62,22 +62,20 @@
     <section class="section" aria-labelledby="ox-why">
       <div class="wrap section__grid">
         <div class="section__rail">
-          <h2 class="section__title" id="ox-why">What ORBIX is built around</h2>
+          <h2 class="section__title" id="ox-why">Why I built ORBIX</h2>
         </div>
         <div class="prose">
           <p>
-            One problem ORBIX is built around is that aircraft and rocket data comes from
-            different sources with different assumptions. A number on its own is not always
-            useful. An empty mass can mean one configuration in one source and a slightly
-            different one somewhere else, and the units and assumptions behind it are not
-            always shown next to it. Put two vehicles side by side that way and you can end up
-            comparing values that were never measured the same way.
+            I built ORBIX because I wanted one place to look through the information I needed
+            on aircraft and launch vehicles, instead of jumping between different sources every
+            time. I also wanted that information to be useful once it was there, so values keep
+            their units, qualifiers and sources with them.
           </p>
           <p>
-            I built ORBIX so a vehicle's data, its units, its qualifiers and its sources stay
-            together. That makes it possible to compare vehicles without losing the context
-            behind the numbers, and it gives the rest of the application something reliable to
-            work from when it runs calculations or a mission.
+            From there it grew into more than a vehicle reference. The Engineering Lab has 33
+            modules with calculators and analysis tools you can put your own numbers into, and
+            the mission side lets you take that information further into mission analysis,
+            preparation, simulation and replay.
           </p>
         </div>
       </div>
@@ -137,6 +135,13 @@
         <div>
           <div class="prose">
             <p>
+              Public sources do not always agree. An empty mass can mean one configuration in
+              one source and a slightly different one somewhere else, and the units and
+              assumptions behind a figure are not always shown next to it. Put two vehicles
+              side by side that way and you can end up comparing values that were never
+              measured in the same way.
+            </p>
+            <p>
               This is the part of ORBIX a screenshot hides. A vehicle in ORBIX is not a page of
               text. It is a configuration: a set of values, each with its unit, its qualifier,
               and the source it came from. The profile pages, the comparison engine and the
@@ -182,7 +187,8 @@
             <p>
               Each module shows its inputs with units, the equation being solved, and what
               every variable in that equation means. The calculation is visible instead of
-              being hidden behind a result.
+              being hidden behind a result, and the inputs are yours to set, so you are not
+              limited to the vehicle data already in ORBIX.
             </p>
           </div>
 
@@ -290,24 +296,24 @@
     <section class="section" aria-labelledby="ox-learned">
       <div class="wrap section__grid">
         <div class="section__rail">
-          <h2 class="section__title" id="ox-learned">What the project changed</h2>
+          <h2 class="section__title" id="ox-learned">Where I want to take it</h2>
         </div>
         <div>
           <div class="prose">
             <p>
-              As ORBIX grew, each page stopped being its own small project. The same vehicle
-              data and the same calculations end up used in several places, so changing one
-              thing can break something on a page nowhere near the change.
+              ORBIX is still a project I am developing. There are parts I want to expand,
+              calculations I want to improve, and more I want to do with the mission tools.
+              What is on this page is where the project is now, not where I expect it to stop.
             </p>
             <p>
-              That is why the project leans on automated tests. Manually checking every part of
-              the application stopped being practical, so the tests cover the calculations,
-              browser behavior, accessibility and visual changes instead.
+              I wanted ORBIX in this portfolio so colleges can see what it does today, how much
+              work has gone into it, and the direction I want to keep taking it.
             </p>
             <p>
-              Keeping units and sources attached to the values, rather than recorded somewhere
-              separate, is what makes the comparisons trustworthy. It also catches mistakes
-              that are easy to miss by eye.
+              As the application grew, I also had to change how I worked on it. The same
+              vehicle data and calculations are used in several places, so automated tests
+              became important for catching problems that would be easy to miss by checking
+              pages one at a time.
             </p>
           </div>
 
