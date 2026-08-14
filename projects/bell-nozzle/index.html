@@ -33,9 +33,9 @@
         <a class="project-header__back" href="../../#work">Work</a>
         <h1 class="project-header__title">Bell Nozzle</h1>
         <p class="lede">
-          A project I set myself: draw a bell nozzle in OpenSCAD, try to simulate it in SimFlow
-          and OpenFOAM, and print it in PLA. The simulation never converged, so most of what I
-          have to show is the debugging.
+          I drew a bell nozzle in OpenSCAD, tried to simulate it in SimFlow and OpenFOAM, and
+          printed it in PLA. The simulation never converged, so most of what I have to show is
+          the debugging.
         </p>
         <dl class="project-meta">
           <div>
@@ -65,16 +65,14 @@
         </div>
         <div class="prose">
           <p>
-            I had been reading about the engines and nozzles on different spacecraft, mostly
-            because I wanted to know why they all look slightly different. At some point
-            reading stopped being enough. I wanted to see whether I could design a bell nozzle
-            myself, and whether I could make it better than the shapes I had been looking at.
+            I started this project while researching the engines and nozzles used on different
+            spacecraft. I wanted to know why their shapes were different, and then I wanted to
+            try designing a more optimal bell nozzle of my own.
           </p>
           <p>
-            I also picked it because it was harder than anything I had tried before. I want to
-            keep doing this kind of work, and the only way I knew to find out if I could was to
-            take one project all the way through. If it turned out well enough, I wanted
-            something I could eventually show to people who do this for a living.
+            I also wanted more experience with propulsion work, because it is the field I want
+            to keep learning about. And if the design turned out well enough, I hoped it would
+            be something I could show to engineers who actually work on this.
           </p>
         </div>
       </div>
@@ -103,10 +101,7 @@
             I worked the sizing around a LOX/RP-1 case: an oxidiser to fuel ratio of 2.56, a
             100 bar chamber at about 3615 K, expanding to 0.7 bar at roughly 3 km altitude,
             with a ratio of specific heats of 1.2 and a molecular weight of 22.65 g/mol. My
-            target was an exit Mach number of 3.5. I also calculated a theoretical exit
-            velocity of about 2,450 m/s at the time. I no longer have that worksheet, and
-            reworking it from the numbers above gives me a different answer, so I treat that
-            figure as a calculation I currently cannot reproduce rather than a result.
+            target was an exit Mach number of 3.5.
           </p>
         </div>
       </div>
@@ -177,19 +172,25 @@
               <dd>15.92</dd>
             </div>
             <div>
-              <dt>Corresponding exit Mach</dt>
-              <dd>About 3.6 (isentropic, γ = 1.2)</dd>
+              <dt>Ideal Mach for that area ratio</dt>
+              <dd>About 3.6 (isentropic relation, γ = 1.2)</dd>
             </div>
           </dl>
 
           <div class="prose prose--after-spec">
             <p>
-              Checking the shape I actually built against the theory is the result I would
-              defend. The exit radius divided by the throat radius is 3.99, so the area ratio
-              is 15.92. Put that back through the area to Mach relation at a ratio of specific
-              heats of 1.2 and it corresponds to an exit Mach number of about 3.6. That is a
-              little past the 3.5 I was aiming for, because I placed the contour points by eye
-              instead of solving for them.
+              Checking the shape I actually built against the theory is the one calculation
+              here I would defend. The exit radius divided by the throat radius is 3.99, so the
+              geometric area ratio is 15.92. For a ratio of specific heats of 1.2, an area
+              ratio of 15.92 corresponds to roughly Mach 3.6 in the ideal isentropic area to
+              Mach relation. That is slightly above the Mach 3.5 target I started with, which
+              makes sense because I placed the contour points by eye instead of solving for
+              them.
+            </p>
+            <p>
+              To be clear about what that is and is not: it is a comparison between my geometry
+              and textbook theory. It is not a simulation result, it is not a measurement, and
+              it says nothing about what the printed part would actually do.
             </p>
           </div>
         </div>
@@ -423,13 +424,9 @@
         </div>
         <div class="prose">
           <p>
-            The nozzle printed and I have it. Holding it tells you things a render does not.
-            The wall is thinner than it looks on screen, the throat is smaller than you expect,
-            and the layer lines run in visible rings around the bell. Those rings are exactly
-            the surface finish question that decides whether printing a shape like this is
-            worth doing at all.
+            The nozzle printed successfully and I still have the finished part.
           </p>
-          <p class="note-inline">A photograph of the finished part is being added from my project archive.</p>
+          <p class="note-inline">I will add a photograph of it here once I pull it from my project photos.</p>
         </div>
       </div>
     </section>
@@ -466,16 +463,17 @@
         </div>
         <div class="prose">
           <p>
-            A solver failing is information. The first few aborts told me nothing except that
-            something was wrong. By the end I could read the error, guess which part of the
-            setup it pointed at, and change one thing to test it. That loop is most of what I
-            got out of this project.
+            The simulation never gave me the result I wanted, but I learned a lot from trying
+            to work out why it kept failing. The early crashes were mostly frustrating, because
+            the error told me something was wrong without telling me where. By the later runs I
+            was much better at reading the error, changing one part of the setup, and testing
+            it again.
           </p>
           <p>
-            I also learned to check my own geometry against the theory instead of trusting that
-            I drew what I meant to draw. That is how I know the shape I printed is closer to
-            Mach 3.6 than to the 3.5 I set out for. And I learned how fast a simulation will
-            hand you a confident looking picture of nothing at all.
+            I also learned how sensitive CFD is to the mesh, the conditions, and the way the
+            case is set up. Small changes there decided whether the run lasted one iteration or
+            twenty. And I learned to check my own geometry against the theory instead of
+            assuming I drew what I meant to draw.
           </p>
         </div>
       </div>
