@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Deep Patel — Aerospace and software work</title>
+  <title>Deep Patel · Aerospace and software work</title>
   <meta name="description" content="Deep Patel, a high school senior in Chelmsford, Massachusetts, working on rocket propulsion design, CFD, CAD, and software.">
   <link rel="canonical" href="https://deeppatel4000-pixel.github.io/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Deep Patel — Aerospace and software work">
+  <meta property="og:title" content="Deep Patel · Aerospace and software work">
   <meta property="og:description" content="Propulsion design, CFD, CAD, and software, by a high school senior in Chelmsford, Massachusetts.">
   <meta property="og:url" content="https://deeppatel4000-pixel.github.io/">
   <link rel="stylesheet" href="styles.css">
@@ -34,14 +34,14 @@
         <h1 class="hero__name" id="hero-name">Deep Patel</h1>
         <div class="hero__body">
           <p>
-            I design rocket nozzles and build software. Last spring I sized a Mach 3.5 bell
-            nozzle from NASA CEA data, wrote it as a parametric shell, meshed it, and watched
-            the solver blow up at iteration 24. This year I built and shipped
-            <strong>ORBIX</strong>, an aerospace application with eleven working surfaces.
+            I design rocket nozzles and build software. Last spring I drew a bell nozzle,
+            meshed it, and spent most of a night watching the solver fall over. The best run
+            got to iteration 24. This year I built and shipped <strong>ORBIX</strong>, an
+            aerospace application with eleven working surfaces.
           </p>
           <p>
-            Propulsion, CFD, and CAD hold my attention because they are where a number on
-            paper becomes geometry you can print, mesh, and be wrong about.
+            I keep coming back to propulsion, CFD, and CAD because that's where a number on
+            paper turns into geometry you can print, mesh, and be wrong about.
           </p>
         </div>
         <p class="hero__context">
@@ -62,11 +62,11 @@
               <p class="feature__kind">Software · Aerospace web application · 2026</p>
               <h3 class="feature__title" id="orbix-title">ORBIX</h3>
               <p class="feature__summary">
-                ORBIX connects landmark aircraft and launch vehicles to the orbital mechanics,
-                entry physics, and thermal analysis behind them, with every value traced back
-                to a published source. Five aircraft, five launch vehicles, a comparison
-                engine, an engineering laboratory of 33 modules, mission control and replay,
-                a showcase, and a learning section — eleven surfaces in all.
+                ORBIX connects real aircraft and launch vehicles to the orbital mechanics,
+                entry physics, and thermal analysis behind them, and every number stays
+                attached to the source it came from. There are eleven surfaces in it: five
+                aircraft, five launch vehicles, a comparison engine, an engineering lab with
+                33 modules, mission control and replay, a showcase, and a learning section.
               </p>
               <p class="feature__links">
                 <a class="link-arrow" href="projects/orbix/">Read the case study</a>
@@ -95,62 +95,36 @@
         <div class="wrap feature__split">
           <div class="feature__panel">
             <p class="feature__index" aria-hidden="true">02</p>
-            <p class="feature__kind">Engineering · Design and analysis · April 2026</p>
-            <h3 class="feature__title" id="nozzle-title">Optimized Bell Nozzle</h3>
+            <p class="feature__kind">Engineering · Self-directed propulsion project · April 2026</p>
+            <h3 class="feature__title" id="nozzle-title">Bell Nozzle</h3>
             <p class="feature__summary">
-              A Mach 3.5 LOX/RP-1 nozzle for a 100 bar chamber, sized from NASA CEA data,
-              written as an OpenSCAD parametric shell, meshed and run in OpenFOAM, then
-              printed inverted so the parabolic wall supports itself. The solve diverged at
-              iteration 24. Working out why is the part I would defend.
+              I wanted to know how bell nozzles actually work, so I tried to design one. I drew
+              the profile in OpenSCAD and revolved it into a shell, ran the flow volume through
+              SimFlow and OpenFOAM, and printed the part in PLA. The simulation never
+              converged, so most of the project turned into figuring out why.
             </p>
 
             <p class="pull-quote">
-              Area ratio 13.8. Isentropic theory for Mach 3.5 at <span class="nowrap">γ = 1.2</span>
-              wants 13.77.
+              The first cases died almost immediately. The best one reached iteration 24, then
+              diverged.
             </p>
 
-            <dl class="spec">
-              <div>
-                <dt>Propellants</dt>
-                <dd>LOX / RP-1, O/F 2.56</dd>
-              </div>
-              <div>
-                <dt>Chamber</dt>
-                <dd>100 bar, 3615 K</dd>
-              </div>
-              <div>
-                <dt>Exit</dt>
-                <dd>0.7 bar at 3 km</dd>
-              </div>
-              <div>
-                <dt>Throat / exit radius</dt>
-                <dd>5.0 mm / 18.55 mm</dd>
-              </div>
-              <div>
-                <dt>Bell length</dt>
-                <dd>45.0 mm</dd>
-              </div>
-              <div>
-                <dt>Tools</dt>
-                <dd>NASA CEA, OpenSCAD, OpenFOAM, FDM</dd>
-              </div>
-            </dl>
+            <p class="feature__tools">OpenSCAD · SimFlow · OpenFOAM · ParaView · FDM</p>
 
             <p class="feature__links">
               <a class="link-arrow" href="projects/bell-nozzle/">Read the case study</a>
             </p>
           </div>
 
-          <figure class="feature__aside">
+          <figure class="feature__aside feature__aside--portrait">
             <img
-              src="assets/nozzle/nozzle-print-orientation.webp"
-              alt="Cross-section of the nozzle in two build orientations, showing the throat marked as the sonic point, self-supporting walls, and a 37.1 mm exit diameter sitting flat on the FDM build plate."
-              width="682" height="384" decoding="async"
+              src="assets/nozzle/nozzle-openscad-render.webp"
+              alt="OpenSCAD render of the bell nozzle: an axisymmetric shell with a wide bell opening narrowing to the throat and a small flare at the other end."
+              width="644" height="900" decoding="async"
             >
             <figcaption>
-              From my design report: printing the nozzle inverted, exit face down, so the
-              parabolic wall is its own support and no sacrificial material touches the
-              expansion curve.
+              The nozzle in OpenSCAD. The whole shape is one six-point profile revolved around
+              the centreline, with a constant 2.5 mm wall.
             </figcaption>
           </figure>
         </div>
@@ -167,20 +141,20 @@
           <div class="prose prose--lead">
             <p>
               The part of engineering I like is where an idea stops being a sketch. Sizing a
-              nozzle is arithmetic until you have to pick a wall thickness, choose a print
-              orientation that will not scar the expansion curve, and decide what to do when
-              the residuals stop falling.
+              nozzle is arithmetic right up until you have to pick a wall thickness, decide
+              which way up to print it, and work out what to do when the residuals stop
+              falling.
             </p>
             <p>
-              I am just as happy in software. ORBIX started because I wanted to compare two
-              launch vehicles properly and could not find anywhere that kept the units, the
+              I like software just as much. ORBIX started because I wanted to compare two
+              launch vehicles properly and couldn't find anywhere that kept the units, the
               configuration, and the source attached to the numbers.
             </p>
             <p>
-              Away from a screen: high jump and hurdles for Chelmsford Track and Field, VEX
-              robotics, and volunteering with BAPS since 2017 — including three months of
-              full-time fabrication work cutting architectural components on CNC and hot-wire
-              machines.
+              Away from a screen I do high jump and hurdles for Chelmsford Track and Field,
+              VEX robotics, and I have volunteered with BAPS since 2017. That includes three
+              months of full-time fabrication work cutting architectural components on CNC and
+              hot-wire machines.
             </p>
           </div>
 
@@ -211,15 +185,15 @@
             <h3 class="group__title" id="group-leadership">Leadership and service</h3>
             <div class="group__lead">
               <p class="group__role">Youth Activities Coordinator, BAPS Bal Mandal</p>
-              <p class="group__when">Lowell, MA · 2022 — now</p>
+              <p class="group__when">Lowell, MA · 2022 to now</p>
               <p class="group__detail">
-                I run youth events at 1,000+ participant scale and write the assembly programs
-                that go with them — which mostly means planning something for a room of kids
-                who did not choose to be there, and making it work anyway.
+                I help run youth events at 1,000+ participant scale and write the assembly
+                programs that go with them. In practice that means planning something for a
+                room of kids who didn't choose to be there, and making it work anyway.
               </p>
             </div>
             <p class="group__also">
-              Also: volunteer with BAPS Charities since 2017 — health awareness events, food
+              Also a volunteer with BAPS Charities since 2017: health awareness events, food
               drives, community cleanups, and event logistics.
             </p>
           </section>
@@ -228,19 +202,20 @@
             <h3 class="group__title" id="group-technical">Technical and work</h3>
             <div class="group__lead">
               <p class="group__role">Full-Time Volunteer, BAPS Akshardham</p>
-              <p class="group__when">Robbinsville, NJ · Jul — Oct 2023</p>
+              <p class="group__when">Robbinsville, NJ · Jul to Oct 2023</p>
               <p class="group__detail">
-                Three months of digital fabrication on a large cultural build: drawing
-                architectural components in CorelDRAW and Illustrator, producing CNC-ready
-                files, then running the CNC and hot-wire machines that cut them from wood,
-                PVC, and styrofoam. The first time my drawings had consequences in material.
+                Three months of digital fabrication on a large cultural build. I drew
+                architectural components in CorelDRAW and Illustrator, turned them into
+                CNC-ready files, then ran the CNC and hot-wire machines that cut them from
+                wood, PVC, and styrofoam. It was the first time my drawings had consequences
+                in material.
               </p>
             </div>
             <p class="group__also">
-              Also: Technical Operations Intern at Stash Proxies (2021 — 2022), monitoring
-              proxy infrastructure for 500+ monthly active users; and Fulfillment and Logistics
-              Associate at Dasbhav LLC (2020 — 2022), where I reworked the packaging process to
-              cut errors.
+              Also Technical Operations Intern at Stash Proxies (2021 to 2022), monitoring
+              proxy infrastructure for 500+ monthly active users, and Fulfillment and Logistics
+              Associate at Dasbhav LLC (2020 to 2022), where I reworked the packaging process
+              to cut errors.
             </p>
           </section>
 
@@ -248,16 +223,16 @@
             <h3 class="group__title" id="group-teams">Teams and activities</h3>
             <div class="group__lead">
               <p class="group__role">Student Athlete, Chelmsford Track and Field</p>
-              <p class="group__when">2023 — now</p>
+              <p class="group__when">2023 to now</p>
               <p class="group__detail">
                 High jump, 55m hurdles, 110m hurdles. Hurdling is the closest thing I do to
-                iterating on a design: the same eleven steps, adjusted slightly, until they
-                stop costing you time.
+                iterating on a design. You run the same eleven steps, change one thing, and
+                find out whether it cost you time.
               </p>
             </div>
             <p class="group__also">
-              Also: VEX Robotics Club (2023 — 2024), building and testing competition robots;
-              and the Artificial Intelligence Club (2025 — now).
+              Also VEX Robotics Club (2023 to 2024), building and testing competition robots,
+              and the Artificial Intelligence Club (2025 to now).
             </p>
           </section>
         </div>
@@ -269,7 +244,7 @@
         <div>
           <h2 class="section__title" id="contact-title">Contact</h2>
           <p class="contact__note">
-            Email is the best way to reach me. I am glad to talk about propulsion, simulation,
+            Email is the best way to reach me. I'm happy to talk about propulsion, simulation,
             or anything on this site.
           </p>
         </div>

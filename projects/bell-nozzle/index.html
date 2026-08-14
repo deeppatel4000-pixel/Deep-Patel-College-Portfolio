@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Optimized Bell Nozzle — Deep Patel</title>
-  <meta name="description" content="A Mach 3.5 LOX/RP-1 bell nozzle sized from NASA CEA data, written as an OpenSCAD parametric shell, meshed and run in OpenFOAM, and printed inverted on an FDM machine.">
+  <title>Bell Nozzle · Deep Patel</title>
+  <meta name="description" content="Designing a bell nozzle in OpenSCAD, trying to simulate it in SimFlow and OpenFOAM, and printing it in PLA, including everything that did not work.">
   <link rel="canonical" href="https://deeppatel4000-pixel.github.io/projects/bell-nozzle/">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Optimized Bell Nozzle — Deep Patel">
-  <meta property="og:description" content="Sizing, modeling, meshing, and printing a Mach 3.5 LOX/RP-1 rocket nozzle.">
+  <meta property="og:title" content="Bell Nozzle · Deep Patel">
+  <meta property="og:description" content="Drawing, simulating, and printing a bell nozzle, including everything that did not work.">
   <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
@@ -31,190 +31,341 @@
     <div class="project-header">
       <div class="wrap">
         <a class="project-header__back" href="../../#work">Work</a>
-        <h1 class="project-header__title">Optimized Bell Nozzle</h1>
+        <h1 class="project-header__title">Bell Nozzle</h1>
         <p class="lede">
-          A Mach 3.5 LOX/RP-1 nozzle for a 100 bar chamber, sized from NASA CEA data, written
-          as an OpenSCAD parametric shell, meshed and run in OpenFOAM, and printed inverted so
-          the parabolic wall supports itself.
+          A project I set myself: draw a bell nozzle in OpenSCAD, try to simulate it in SimFlow
+          and OpenFOAM, and print it in PLA. The simulation never converged, so most of what I
+          have to show is the debugging.
         </p>
         <dl class="project-meta">
           <div>
             <dt>Type</dt>
-            <dd>Design and analysis</dd>
+            <dd>Personal project</dd>
           </div>
           <div>
             <dt>Date</dt>
             <dd>April 2026</dd>
           </div>
           <div>
-            <dt>Geometry</dt>
-            <dd>5.0 mm throat, 18.55 mm exit</dd>
+            <dt>Tools</dt>
+            <dd>OpenSCAD, SimFlow, OpenFOAM, ParaView, Cura</dd>
           </div>
           <div>
-            <dt>Tools</dt>
-            <dd>NASA CEA, OpenSCAD, OpenFOAM, FDM</dd>
+            <dt>Outcome</dt>
+            <dd>Printed part, unconverged CFD</dd>
           </div>
         </dl>
       </div>
     </div>
 
-    <section class="section" aria-labelledby="nz-objective">
+    <section class="section" aria-labelledby="nz-why">
       <div class="wrap section__grid">
         <div class="section__rail">
-          <h2 class="section__title" id="nz-objective">The problem</h2>
+          <h2 class="section__title" id="nz-why">Why I started it</h2>
         </div>
         <div class="prose">
           <p>
-            A bell nozzle has one job: take hot, high-pressure gas and turn as much of its
-            thermal energy into directed momentum as the geometry allows. The target here was
-            an exit Mach number of 3.5 at roughly 3 km altitude, expanding from a 100 bar
-            chamber down to 0.7 bar at the exit plane.
+            I had been reading about the engines and nozzles on different spacecraft, mostly
+            because I wanted to know why they all look slightly different. At some point
+            reading stopped being enough. I wanted to see whether I could design a bell nozzle
+            myself, and whether I could make it better than the shapes I had been looking at.
           </p>
           <p>
-            That is an aggressive expansion for something 45 mm long, and most of the work was
-            finding out what that aggression costs — in geometry, in the solver, and on the
-            print bed.
+            I also picked it because it was harder than anything I had tried before. I want to
+            keep doing this kind of work, and the only way I knew to find out if I could was to
+            take one project all the way through. If it turned out well enough, I wanted
+            something I could eventually show to people who do this for a living.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="section section--tinted" aria-labelledby="nz-inputs">
+    <section class="section section--tinted" aria-labelledby="nz-physics">
       <div class="wrap section__grid">
         <div class="section__rail">
-          <h2 class="section__title" id="nz-inputs">Design inputs</h2>
-          <p class="section__note">From NASA CEA, for the LOX/RP-1 pair at O/F 2.56.</p>
+          <h2 class="section__title" id="nz-physics">Learning the physics</h2>
         </div>
-        <dl class="spec">
-          <div>
-            <dt>Propellants</dt>
-            <dd>LOX / RP-1</dd>
-          </div>
-          <div>
-            <dt>Mixture ratio (O/F)</dt>
-            <dd>2.56</dd>
-          </div>
-          <div>
-            <dt>Chamber pressure</dt>
-            <dd>100 bar</dd>
-          </div>
-          <div>
-            <dt>Chamber temperature</dt>
-            <dd>3615 K</dd>
-          </div>
-          <div>
-            <dt>Exit pressure target</dt>
-            <dd>0.7 bar (3 km standard altitude)</dd>
-          </div>
-          <div>
-            <dt>Ratio of specific heats</dt>
-            <dd>1.2</dd>
-          </div>
-          <div>
-            <dt>Molecular weight</dt>
-            <dd>22.65 g/mol</dd>
-          </div>
-          <div>
-            <dt>Target exit Mach</dt>
-            <dd>3.5</dd>
-          </div>
-        </dl>
+        <div class="prose">
+          <p>
+            Before I could draw anything I had to understand what sets the shape. A bell nozzle
+            has a converging section, a throat where the flow goes sonic, and a diverging
+            section where the gas keeps speeding up. That last part is the one that confused me
+            at first. Below the throat, a narrowing passage speeds gas up. Above it, only a
+            widening one does.
+          </p>
+          <p>
+            The relation that matters after that is the one between area ratio and exit Mach
+            number for a given ratio of specific heats. That is what turns a target into a
+            dimension. You pick the Mach number you want at the exit, and the physics tells you
+            how much bigger the exit has to be than the throat.
+          </p>
+          <p>
+            I worked the sizing around a LOX/RP-1 case: an oxidiser to fuel ratio of 2.56, a
+            100 bar chamber at about 3615 K, expanding to 0.7 bar at roughly 3 km altitude,
+            with a ratio of specific heats of 1.2 and a molecular weight of 22.65 g/mol. My
+            target was an exit Mach number of 3.5. I also calculated a theoretical exit
+            velocity of about 2,450 m/s at the time. I no longer have that worksheet, and
+            reworking it from the numbers above gives me a different answer, so I treat that
+            figure as a calculation I currently cannot reproduce rather than a result.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="nz-sizing">
+    <section class="section" aria-labelledby="nz-geometry">
       <div class="wrap section__grid">
         <div class="section__rail">
-          <h2 class="section__title" id="nz-sizing">Sizing and geometry</h2>
+          <h2 class="section__title" id="nz-geometry">Turning it into geometry</h2>
         </div>
         <div>
           <div class="prose">
             <p>
-              Those inputs fix the area ratio, and the area ratio fixes the geometry: a 5.0 mm
-              throat radius opening to an 18.55 mm exit radius — 37.1 mm across the exit plane
-              — over a 45 mm parabolic bell, with a constant 2.0 mm wall.
+              I built the nozzle in OpenSCAD. The whole shape comes from a six-point profile,
+              which is the exit, four points down the diverging wall, the throat, and the
+              inlet. That profile gets revolved around the centreline with
+              <span class="nowrap">rotate_extrude()</span>, then offset by a constant wall
+              thickness so it is a shell instead of a solid.
             </p>
             <p>
-              The check I care about is that the geometry and the target agree. The built area
-              ratio is 13.8. The isentropic area ratio for Mach 3.5 at a ratio of specific
-              heats of 1.2 is 13.77. Those matching to within a tenth of a percent is the
-              evidence that the sizing chain — CEA output, isentropic relations, drawn
-              geometry — was carried through correctly.
+              Writing it as code rather than clicking it out in a CAD program meant I could
+              move one point and see the whole contour change, and it let me hold the wall
+              thickness and the overall scale as variables. The contour points themselves are
+              typed in, so this is not a full nozzle generator. It is a profile I tuned by hand
+              until the curve looked right.
             </p>
           </div>
 
-          <p class="pull-quote">
-            Area ratio 13.8. Theory wants 13.77.
-          </p>
+          <figure class="figure">
+            <img
+              src="../../assets/nozzle/nozzle-openscad-render.webp"
+              alt="OpenSCAD render of the bell nozzle, an axisymmetric shell with a wide bell opening that narrows towards the throat and a small flare at the far end."
+              width="644" height="900" loading="lazy" decoding="async"
+              class="figure__portrait"
+            >
+            <figcaption>The nozzle in OpenSCAD, before export.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
 
+    <section class="section section--tinted" aria-labelledby="nz-actual">
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="nz-actual">The actual nozzle</h2>
+          <p class="section__note">Measured from the model I exported and printed.</p>
+        </div>
+        <div>
           <dl class="spec">
             <div>
               <dt>Throat radius</dt>
-              <dd>5.0 mm</dd>
+              <dd>8.1 mm</dd>
             </div>
             <div>
               <dt>Exit radius</dt>
-              <dd>18.55 mm (37.1 mm diameter)</dd>
+              <dd>32.32 mm</dd>
             </div>
             <div>
-              <dt>Area ratio, built</dt>
-              <dd>13.8</dd>
-            </div>
-            <div>
-              <dt>Area ratio, isentropic theory</dt>
-              <dd>13.77</dd>
-            </div>
-            <div>
-              <dt>Pressure ratio</dt>
-              <dd>143 : 1</dd>
-            </div>
-            <div>
-              <dt>Bell length</dt>
-              <dd>45.0 mm</dd>
+              <dt>Overall height</dt>
+              <dd>84.48 mm</dd>
             </div>
             <div>
               <dt>Wall thickness</dt>
-              <dd>2.0 mm</dd>
+              <dd>2.5 mm</dd>
             </div>
             <div>
-              <dt>Geometry</dt>
-              <dd>OpenSCAD parametric shell</dd>
+              <dt>Area ratio</dt>
+              <dd>15.92</dd>
+            </div>
+            <div>
+              <dt>Corresponding exit Mach</dt>
+              <dd>About 3.6 (isentropic, γ = 1.2)</dd>
             </div>
           </dl>
+
+          <div class="prose prose--after-spec">
+            <p>
+              Checking the shape I actually built against the theory is the result I would
+              defend. The exit radius divided by the throat radius is 3.99, so the area ratio
+              is 15.92. Put that back through the area to Mach relation at a ratio of specific
+              heats of 1.2 and it corresponds to an exit Mach number of about 3.6. That is a
+              little past the 3.5 I was aiming for, because I placed the contour points by eye
+              instead of solving for them.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--tinted" aria-labelledby="nz-cfd">
+    <section class="section" aria-labelledby="nz-setup">
       <div class="wrap section__grid">
         <div class="section__rail">
-          <h2 class="section__title" id="nz-cfd">The solve, and how it failed</h2>
+          <h2 class="section__title" id="nz-setup">Preparing the CFD model</h2>
         </div>
         <div class="prose">
           <p>
-            The geometry went into OpenFOAM as a compressible steady-state case
-            (<span class="nowrap">rhoSimpleFoam</span>), driven through SimFlow, with the
-            inlet at 100 bar and 3615 K, no-slip walls, and a 0.7 bar outlet. Discretization
-            was upwind.
+            A solver does not want the nozzle. It wants the gas inside it. So I made a second
+            OpenSCAD model of just the internal flow path, with no walls, and exported that as
+            the geometry to simulate.
           </p>
           <p>
-            It did not converge. The residuals stalled rather than falling, and by iteration 24
-            the run had diverged — the enthalpy residual first, with the solver reporting
-            continuity errors and pressures that are not physically meaningful. A 143:1
-            pressure ratio and a 3615 K inlet put gradients across the sonic line that a
-            steady-state solver, on this mesh and with this discretization, could not hold.
-          </p>
-          <p>
-            What I will not claim is that the flow field was correct before it broke. I do not
-            have a velocity or Mach field to show, so the honest summary is that the case was
-            set up, it ran for 24 iterations, and it fell over. The next attempt would start
-            with a transient solver and a mesh built around the throat rather than the domain.
+            That went into SimFlow, which is the interface I used to set up and run the case.
+            The solver underneath it is OpenFOAM, and I used ParaView to look at the results.
+            SimFlow's free version caps a mesh at 200,000 nodes on a single core, and that
+            limit shaped everything that came after.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="nz-print">
+    <section class="section section--tinted" aria-labelledby="nz-mysetup">
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="nz-mysetup">My simulation setup</h2>
+        </div>
+        <div>
+          <dl class="spec">
+            <div>
+              <dt>Interface</dt>
+              <dd>SimFlow 5.0.68</dd>
+            </div>
+            <div>
+              <dt>Solver</dt>
+              <dd>OpenFOAM v2212</dd>
+            </div>
+            <div>
+              <dt>Mesh</dt>
+              <dd>Hex box, 40 × 40 × 60, about 96,000 cells, uniform grading</dd>
+            </div>
+            <div>
+              <dt>Domain</dt>
+              <dd>70 × 70 × 95 mm around the flow volume</dd>
+            </div>
+            <div>
+              <dt>Turbulence</dt>
+              <dd>Laminar</dd>
+            </div>
+            <div>
+              <dt>Inlet</dt>
+              <dd>Pressure inlet, 100 bar total</dd>
+            </div>
+          </dl>
+
+          <div class="prose prose--after-spec">
+            <p>
+              The mesh is the weak point, and I can see that more clearly now than I could
+              then. It is a uniform box wrapped around the nozzle rather than a mesh built
+              around the nozzle. The cells are the same size at the throat as they are out in
+              the corner of the domain, where nothing happens. The 0.7 bar exit target comes
+              from my sizing notes. The 100 bar inlet I can still read straight off the case
+              setup.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="nz-failing">
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="nz-failing">What kept failing</h2>
+        </div>
+        <div class="prose">
+          <p>
+            The early runs did not really run. OpenFOAM would abort inside the thermodynamics
+            and report a temperature of about minus 1×10<sup>17</sup> K, which is the solver
+            saying the energy equation produced something meaningless and it will not carry on.
+            That happened within one or two iterations.
+          </p>
+          <p>
+            At first I blamed the mesh, because it was obviously coarse. Then I went back
+            through the pressure and temperature settings, then the boundary conditions, then
+            the mesh again. Every change gave me another test case, and I ran a lot of them
+            across one evening. Eventually I added a temperature limiter to stop the solver
+            aborting outright, which kept the case alive much longer. A limiter is a way of
+            surviving the symptom, though, not a fix for whatever was causing it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tinted" aria-labelledby="nz-history">
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="nz-history">How far each run got</h2>
+          <p class="section__note">Reconstructed from screenshots I took as I went.</p>
+        </div>
+        <div>
+          <dl class="spec">
+            <div>
+              <dt>2 April, 22:23</dt>
+              <dd>Aborted at iteration 2, fatal error in the temperature solve</dd>
+            </div>
+            <div>
+              <dt>2 April, 22:28</dt>
+              <dd>Same abort, with 1000 iterations requested</dd>
+            </div>
+            <div>
+              <dt>2 April, 23:03</dt>
+              <dd>Iteration 1, laminar case, no limiters</dd>
+            </div>
+            <div>
+              <dt>2 April, 23:19</dt>
+              <dd>Iteration 2, continuity error already growing</dd>
+            </div>
+            <div>
+              <dt>2 April, 23:29</dt>
+              <dd>Iteration 20, with the temperature limiter in place</dd>
+            </div>
+            <div>
+              <dt>3 April, 16:49</dt>
+              <dd>Iteration 24, the furthest any run got, then it diverged</dd>
+            </div>
+          </dl>
+
+          <div class="prose prose--after-spec">
+            <p>
+              Those six are the runs I happened to capture, out of a lot more. What they show
+              is the shape of the evening. I went from cases that died on contact to cases that
+              survived into the twenties, without ever reaching an answer.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="nz-evidence">
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="nz-evidence">What the evidence supports</h2>
+        </div>
+        <div class="prose">
+          <p>
+            I want to be exact here, because it would be easy to imply more than I have. The
+            simulation did not produce a valid flow solution. No velocity, Mach, or pressure
+            field was ever written to disk. When I open the case in ParaView the only time step
+            available is zero, which is the mesh before anything was solved. I did not
+            numerically confirm choking at the throat, I did not confirm supersonic expansion,
+            and I have nothing that would let me say whether the nozzle was over or under
+            expanded.
+          </p>
+          <p>
+            In the final run the solver reported a continuity error of order
+            10<sup>49</sup> and pressures of order 10<sup>95</sup>, both positive and negative.
+            Those are not small errors. They are the numbers a case produces on its way to
+            falling apart. The residual plot from that run shows velocity and enthalpy
+            flattening out around 10<sup>-2</sup> while the pressure residual sits at 1, which
+            is a case that is not converging rather than one that is nearly there.
+          </p>
+          <p>
+            So the CFD here is a record of a setup and a failure, not a validation of the
+            design. The geometry check earlier on this page is the only quantitative result I
+            would stand behind.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tinted" aria-labelledby="nz-print">
       <div class="wrap section__grid">
         <div class="section__rail">
           <h2 class="section__title" id="nz-print">Printing it</h2>
@@ -222,29 +373,63 @@
         <div>
           <div class="prose">
             <p>
-              The nozzle was printed on an Entina Tina2 in FDM. The problem with printing a
-              bell is the internal curve: printed the obvious way, inlet down, the overhang
-              needs sacrificial support inside the expansion section, and every contact point
-              leaves a mark exactly where the boundary layer is most sensitive.
+              The printing question is which way up. Printed the obvious way, inlet down, the
+              inside of the bell is an overhang, so the slicer fills the expansion section with
+              sacrificial support. Every contact point then leaves a mark on the surface the
+              gas would flow along.
             </p>
             <p>
-              Turning the part 180° solves it. With the exit face flat on the build plate, the
-              parabolic wall never exceeds its own self-supporting angle, so the geometry
-              supports itself and nothing touches the inside surface.
+              Turning the part over solves it. With the exit face flat on the plate, the wall
+              never exceeds its own self-supporting angle, so nothing has to be built inside
+              the bell. There is still a raft under the part where it meets the bed. What the
+              orientation avoids is support material against the internal curve.
             </p>
           </div>
 
-          <figure class="figure">
-            <img
-              src="../../assets/nozzle/nozzle-print-strategy-figure.webp"
-              alt="Diagram titled 3D printing strategy for aerodynamic smoothness: the nozzle shown upright and inverted, with build direction, the throat marked as the sonic point, self-supporting angles, a 37.1 mm exit diameter on the FDM build plate, and the inlet-down orientation crossed out."
-              width="1024" height="559" loading="lazy" decoding="async"
-            >
-            <figcaption>
-              Figure from my design report: the two candidate build orientations, and why the
-              inverted one wins.
-            </figcaption>
-          </figure>
+          <dl class="spec">
+            <div>
+              <dt>Printer</dt>
+              <dd>Entina TINA2S (FDM)</dd>
+            </div>
+            <div>
+              <dt>Material</dt>
+              <dd>PLA</dd>
+            </div>
+            <div>
+              <dt>Layer height</dt>
+              <dd>0.2 mm, 422 layers</dd>
+            </div>
+            <div>
+              <dt>Infill</dt>
+              <dd>10%</dd>
+            </div>
+            <div>
+              <dt>Print time</dt>
+              <dd>4 h 42 min, 11.2 m of filament</dd>
+            </div>
+            <div>
+              <dt>Orientation</dt>
+              <dd>Inverted, exit face on the build plate</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="nz-prototype">
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="nz-prototype">The printed part</h2>
+        </div>
+        <div class="prose">
+          <p>
+            The nozzle printed and I have it. Holding it tells you things a render does not.
+            The wall is thinner than it looks on screen, the throat is smaller than you expect,
+            and the layer lines run in visible rings around the bell. Those rings are exactly
+            the surface finish question that decides whether printing a shape like this is
+            worth doing at all.
+          </p>
+          <p class="note-inline">A photograph of the finished part is being added from my project archive.</p>
         </div>
       </div>
     </section>
@@ -256,10 +441,41 @@
         </div>
         <div class="prose">
           <p>
-            Three things, in order. Mesh the nozzle rather than the box around it, with real
-            refinement through the throat. Start transient and let the flow establish before
-            asking a steady solver for an answer. And produce a Mach field, because a
-            convergence plot is evidence about the solver, not about the nozzle.
+            Mesh the nozzle, not the box. The cells need to be small where the flow does
+            something, through the throat and along the wall, and they can be much larger
+            everywhere else. That is also the only way to stay under a node limit.
+          </p>
+          <p>
+            Check that the inlet, outlet, and wall are genuinely separate patches with the
+            right condition on each, instead of assuming they are. Bring the case up gradually
+            rather than starting a 100 bar inlet from ambient. Run it transient first, so the
+            flow can establish before I ask a steady-state solver for an answer.
+          </p>
+          <p>
+            Then the test of whether any of that worked is simple. Produce a Mach field and
+            look at it. I would not call the nozzle simulated until I can.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="nz-learned">
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="nz-learned">What I learned</h2>
+        </div>
+        <div class="prose">
+          <p>
+            A solver failing is information. The first few aborts told me nothing except that
+            something was wrong. By the end I could read the error, guess which part of the
+            setup it pointed at, and change one thing to test it. That loop is most of what I
+            got out of this project.
+          </p>
+          <p>
+            I also learned to check my own geometry against the theory instead of trusting that
+            I drew what I meant to draw. That is how I know the shape I printed is closer to
+            Mach 3.6 than to the 3.5 I set out for. And I learned how fast a simulation will
+            hand you a confident looking picture of nothing at all.
           </p>
         </div>
       </div>
