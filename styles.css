@@ -656,6 +656,38 @@ a:hover {
   border-top: 1px solid var(--color-border);
 }
 
+/* photographic evidence inside an experience entry, held to the text measure
+   so it supports the entry without competing with the project features */
+.evidence {
+  margin-top: var(--space-5);
+  display: grid;
+  gap: var(--space-5);
+  max-width: var(--measure);
+}
+
+.evidence figure {
+  margin: 0;
+}
+
+.evidence img {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.evidence figcaption {
+  margin-top: var(--space-3);
+  font-size: var(--step--1);
+  color: var(--color-muted);
+}
+
+@media (min-width: 46rem) {
+  .evidence {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+}
+
 @media (min-width: 62rem) {
   .groups {
     gap: var(--space-8);
