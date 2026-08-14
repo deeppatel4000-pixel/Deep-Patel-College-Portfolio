@@ -34,7 +34,7 @@
         <h1 class="project-header__title">ORBIX</h1>
         <p class="lede">
           I designed and built ORBIX as a personal aerospace software project. It puts real
-          aircraft and launch vehicles, the engineering maths behind them, and full mission
+          aircraft and launch vehicles, the engineering math behind them, and full mission
           simulations into one application, and it keeps every number attached to the source
           and the units it came with.
         </p>
@@ -49,7 +49,7 @@
           </div>
           <div>
             <dt>Scale</dt>
-            <dd>11 surfaces, 33 lab modules</dd>
+            <dd>10 vehicles, 33 lab modules</dd>
           </div>
           <div>
             <dt>Live</dt>
@@ -66,18 +66,17 @@
         </div>
         <div class="prose">
           <p>
-            I kept running into the same problem while reading about aircraft and launch
-            vehicles. The numbers are out there, but they arrive without context. One source
-            gives an empty mass, another gives a maximum takeoff mass, and neither says which
-            configuration it measured or whether the figure is nominal or approximate. Put two
-            vehicles next to each other and you often end up comparing things that were never
-            measured the same way.
+            ORBIX started around a problem in working with aircraft and rocket data. A number
+            on its own is not always useful. An empty mass can mean one configuration in one
+            source and a slightly different one somewhere else, and the units and assumptions
+            behind it are not always shown next to it. Put two vehicles side by side that way
+            and you can end up comparing values that were never measured the same way.
           </p>
           <p>
-            So I built the thing I wanted to use. ORBIX holds a set of real vehicles with their
-            published values, keeps the units and the qualifiers attached, and then lets you do
-            something with them. You can compare vehicles, run the engineering calculations
-            behind their performance, and set up and replay a mission.
+            I built ORBIX so a vehicle's data, its units, its qualifiers and its sources stay
+            together. That makes it possible to compare vehicles without losing the context
+            behind the numbers, and it gives the rest of the application something reliable to
+            work from when it runs calculations or a mission.
           </p>
         </div>
       </div>
@@ -87,12 +86,12 @@
       <div class="wrap section__grid">
         <div class="section__rail">
           <h2 class="section__title" id="ox-scope">What ORBIX became</h2>
-          <p class="section__note">Eleven surfaces, built one at a time.</p>
+          <p class="section__note">Ten vehicles and a growing set of engineering tools.</p>
         </div>
         <div>
           <div class="prose">
             <p>
-              The application is organised around ten vehicles: five aircraft, the F-22, F-35,
+              The application is organized around ten vehicles: five aircraft, the F-22, F-35,
               F-15, B-2 and SR-71, and five launch vehicles, Falcon 9, Falcon Heavy, Saturn V,
               SLS and Starship. Each one has a discovery page and a full engineering profile.
             </p>
@@ -182,10 +181,9 @@
               and mission design, mission operations, and review and presentation.
             </p>
             <p>
-              Every module takes explicit inputs with their units, shows the equation it is
-              solving, and defines each variable in it. I wanted a student using the rocket
-              equation to see that it is a real relation between mass ratio and exhaust
-              velocity, not a black box that returns a number.
+              Each module shows its inputs with units, the equation being solved, and what
+              every variable in that equation means. The calculation is visible instead of
+              being hidden behind a result.
             </p>
           </div>
 
@@ -213,9 +211,9 @@
           <div class="prose">
             <p>
               Mission Control takes a mission preset, an ISS-style resupply for example, and
-              opens it as a full workspace: the mission profile, the orbital visualisation,
+              opens it as a full workspace: the mission profile, the orbital visualization,
               the phase sequence, and the report that comes out of it. The phases run from
-              launch and departure through orbit transfer and manoeuvre, and each one resolves
+              launch and departure through orbit transfer and maneuver, and each one resolves
               from the mission configuration rather than being written in by hand.
             </p>
             <p>
@@ -258,8 +256,8 @@
             <p>
               The unit tests cover the calculations and the data handling. The browser tests
               drive the real interface, including an accessibility suite and a visual set that
-              catches layout changes I did not intend. All of it runs in GitHub Actions on the
-              way to a production build on Vercel, so a broken change fails before it ships.
+              catches layout changes I did not mean to make. All of it runs in GitHub Actions,
+              and the build has to pass before anything reaches Vercel.
             </p>
           </div>
 
@@ -298,16 +296,20 @@
         <div>
           <div class="prose">
             <p>
-              Structure matters more than speed on a project this size. The early surfaces were
-              quick to build and the later ones were quick to break, and the difference was
-              whether they shared a clear model of what a vehicle actually is. Time spent on
-              that model paid for itself every time I added something new.
+              The biggest change as ORBIX grew was that I could not treat every page as its own
+              small project anymore. The same vehicle data and the same calculations were being
+              used in several places, so changing one thing could break something I was not
+              even looking at.
             </p>
             <p>
-              I also learned that technical data needs its sources and its units carried with
-              it, not written down once in a document somewhere. And that on a project I work
-              on for months, tests are not bureaucracy. They are the only way I can change
-              something in the middle of the app and still trust the edges.
+              That is also why I started relying much more on tests. By the end I was using
+              them to check calculations, browser behavior, accessibility and visual changes,
+              instead of trying to click through the whole application myself.
+            </p>
+            <p>
+              The other thing that stuck was keeping units and sources attached to the values
+              rather than recording them somewhere separate. It is what made the comparisons
+              trustworthy, and it caught mistakes I would not have noticed otherwise.
             </p>
           </div>
 
