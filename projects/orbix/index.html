@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ORBIX · Deep Patel</title>
-  <meta name="description" content="ORBIX, an aerospace web application designed and built by Deep Patel: vehicle exploration, comparison, an engineering lab, and mission replay.">
+  <meta name="description" content="ORBIX is an aerospace web application I designed and built: aircraft and launch vehicle profiles, a comparison engine, an engineering lab of 33 modules, and mission control with replay.">
   <link rel="canonical" href="https://deeppatel4000-pixel.github.io/projects/orbix/">
   <meta property="og:type" content="article">
   <meta property="og:title" content="ORBIX · Deep Patel">
-  <meta property="og:description" content="An aerospace web application: vehicle exploration, comparison, an engineering lab, and mission replay.">
+  <meta property="og:description" content="An aerospace web application with vehicle profiles, a comparison engine, an engineering lab, and mission simulation.">
   <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
@@ -30,90 +30,303 @@
   <main id="main">
     <div class="project-header">
       <div class="wrap">
-      <a class="project-header__back" href="../../#work">Work</a>
-      <h1 class="project-header__title">ORBIX</h1>
-      <p class="lede">
-        An aerospace application for looking closely at real vehicles. It has aircraft and
-        rocket profiles, side by side comparison, an engineering lab, mission control and
-        replay, and a research section.
-      </p>
-      <dl class="project-meta">
-        <div>
-          <dt>Type</dt>
-          <dd>Web application</dd>
-        </div>
-        <div>
-          <dt>Role</dt>
-          <dd>Design and build</dd>
-        </div>
-        <div>
-          <dt>Scale</dt>
-          <dd>11 surfaces, 33 lab modules</dd>
-        </div>
-        <div>
-          <dt>Live</dt>
-          <dd><a href="https://orbix-aerospace.vercel.app" rel="noopener">orbix-aerospace.vercel.app</a></dd>
-        </div>
-      </dl>
+        <a class="project-header__back" href="../../#work">Work</a>
+        <h1 class="project-header__title">ORBIX</h1>
+        <p class="lede">
+          I designed and built ORBIX as a personal aerospace software project. It puts real
+          aircraft and launch vehicles, the engineering maths behind them, and full mission
+          simulations into one application, and it keeps every number attached to the source
+          and the units it came with.
+        </p>
+        <dl class="project-meta">
+          <div>
+            <dt>Type</dt>
+            <dd>Web application</dd>
+          </div>
+          <div>
+            <dt>Role</dt>
+            <dd>Design and build</dd>
+          </div>
+          <div>
+            <dt>Scale</dt>
+            <dd>11 surfaces, 33 lab modules</dd>
+          </div>
+          <div>
+            <dt>Live</dt>
+            <dd><a href="https://orbix-aerospace.vercel.app" rel="noopener">orbix-aerospace.vercel.app</a></dd>
+          </div>
+        </dl>
       </div>
     </div>
 
-    <section class="section" aria-labelledby="orbix-what">
+    <section class="section" aria-labelledby="ox-why">
       <div class="wrap section__grid">
         <div class="section__rail">
-          <h2 class="section__title" id="orbix-what">What it does</h2>
+          <h2 class="section__title" id="ox-why">What I wanted to build</h2>
+        </div>
+        <div class="prose">
+          <p>
+            I kept running into the same problem while reading about aircraft and launch
+            vehicles. The numbers are out there, but they arrive without context. One source
+            gives an empty mass, another gives a maximum takeoff mass, and neither says which
+            configuration it measured or whether the figure is nominal or approximate. Put two
+            vehicles next to each other and you often end up comparing things that were never
+            measured the same way.
+          </p>
+          <p>
+            So I built the thing I wanted to use. ORBIX holds a set of real vehicles with their
+            published values, keeps the units and the qualifiers attached, and then lets you do
+            something with them. You can compare vehicles, run the engineering calculations
+            behind their performance, and set up and replay a mission.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tinted" aria-labelledby="ox-scope">
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="ox-scope">What ORBIX became</h2>
+          <p class="section__note">Eleven surfaces, built one at a time.</p>
         </div>
         <div>
           <div class="prose">
             <p>
-              ORBIX connects real aircraft and launch vehicles to the orbital mechanics, entry
-              physics, and thermal analysis behind them, and it keeps every value attached to
-              the source it came from. You can browse the registries, open a profile for a
-              single vehicle, put vehicles side by side, work through the engineering lab, run
-              and replay a mission, and read the learning material.
+              The application is organised around ten vehicles: five aircraft, the F-22, F-35,
+              F-15, B-2 and SR-71, and five launch vehicles, Falcon 9, Falcon Heavy, Saturn V,
+              SLS and Starship. Each one has a discovery page and a full engineering profile.
+            </p>
+            <p>
+              On top of that sit the comparison engine, the Engineering Lab, mission control
+              with replay, a showcase, and a learning section for the underlying theory.
             </p>
           </div>
 
-          <figure class="figure">
+          <figure class="figure figure--wide">
             <img
-              src="../../assets/orbix/orbix-engineering-lab.webp"
-              alt="The ORBIX engineering laboratory mission archive: cards for LEO satellite deployment, ISS-style resupply, lunar transfer, a reentry demonstrator, and a Mars transfer concept, each listing available systems and a link into mission control."
-              width="1585" height="1000" loading="lazy" decoding="async"
+              src="../../assets/orbix/orbix-aircraft-registry.webp"
+              alt="The ORBIX aircraft registry showing engineering profile cards for the F-22 Raptor, F-35 Lightning II, SR-71 Blackbird, B-2 Spirit and F-15 Eagle, each with a role label, a short description, maximum speed and service ceiling."
+              width="1585" height="1130" loading="lazy" decoding="async"
             >
             <figcaption>
-              The engineering laboratory. Each mission carries its own configuration and opens
-              into mission control.
+              The aircraft registry. Every card carries the role, the maximum speed and the
+              service ceiling, and opens into a full profile.
+            </figcaption>
+          </figure>
+
+          <figure class="figure">
+            <img
+              src="../../assets/orbix/orbix-vehicle-profile.webp"
+              alt="The Falcon 9 technical dashboard in ORBIX, showing vehicle height 70 m, liftoff mass 549,054 kg, liftoff thrust 7,686 kN, two stage sections, country of origin and six mission records, above a launch vehicle architecture panel describing the first stage propellants."
+              width="1585" height="1020" loading="lazy" decoding="async"
+            >
+            <figcaption>
+              A vehicle profile. The technical dashboard is assembled from the selected
+              configuration, so the height, mass and thrust always belong to the same variant.
             </figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="orbix-surfaces">
+    <section class="section" aria-labelledby="ox-data">
       <div class="wrap section__grid">
         <div class="section__rail">
-          <h2 class="section__title" id="orbix-surfaces">Surfaces</h2>
-          <p class="section__note">Eleven, as built.</p>
+          <h2 class="section__title" id="ox-data">Keeping the numbers honest</h2>
         </div>
-        <ol class="index-list">
-          <li>Home</li>
-          <li>Aircraft exploration</li>
-          <li>Aircraft profiles</li>
-          <li>Rocket exploration</li>
-          <li>Rocket profiles</li>
-          <li>Compare</li>
-          <li>Engineering Lab</li>
-          <li>Mission Control</li>
-          <li>Mission Replay</li>
-          <li>Learn and Research</li>
-          <li>Showcase</li>
-        </ol>
+        <div>
+          <div class="prose">
+            <p>
+              This is the part of ORBIX I care about most, and it is the part a screenshot
+              hides. A vehicle in ORBIX is not a page of text. It is a configuration: a set of
+              values, each with its unit, its qualifier, and the source it came from. The
+              profile pages, the comparison engine and the mission tools all read from that
+              same configuration.
+            </p>
+            <p>
+              That is what makes the comparison honest. When the table says an F-22 has an
+              empty mass of 43,340 lb, it also says that value is an approximate public figure,
+              and it will not quietly compare it against a nominal value from another aircraft
+              without telling you. Getting that right took longer than building the pages that
+              display it.
+            </p>
+          </div>
+
+          <figure class="figure figure--wide">
+            <img
+              src="../../assets/orbix/orbix-compare.webp"
+              alt="The ORBIX comparison engine with the F-22 Raptor, F-35 Lightning II and SR-71 Blackbird side by side, grouped into heritage, geometry, mass and structures, propulsion and performance, with each value carrying a note such as nominal value or approximate public value."
+              width="1585" height="1180" loading="lazy" decoding="async"
+            >
+            <figcaption>
+              Three aircraft compared. Values stay grouped by engineering category, and each
+              one keeps the note that says how it was measured.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tinted" aria-labelledby="ox-lab">
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="ox-lab">The Engineering Lab</h2>
+          <p class="section__note">33 modules across six workflows.</p>
+        </div>
+        <div>
+          <div class="prose">
+            <p>
+              The Lab is where ORBIX stops being a reference and starts being a tool. It holds
+              33 modules, roughly 20 of them calculators and 22 analysis tools, grouped into
+              six workflows: engineering foundations, compressible flow, entry systems, orbital
+              and mission design, mission operations, and review and presentation.
+            </p>
+            <p>
+              Every module takes explicit inputs with their units, shows the equation it is
+              solving, and defines each variable in it. I wanted a student using the rocket
+              equation to see that it is a real relation between mass ratio and exhaust
+              velocity, not a black box that returns a number.
+            </p>
+          </div>
+
+          <figure class="figure figure--wide">
+            <img
+              src="../../assets/orbix/orbix-lab-calculator.webp"
+              alt="The ORBIX Engineering Lab showing the Tsiolkovsky rocket equation calculator with initial mass, final mass and specific impulse inputs in kilograms and seconds, a computed ideal delta-v panel, and an equation model panel defining every variable, alongside a workflow index of six workflows."
+              width="1585" height="1120" loading="lazy" decoding="async"
+            >
+            <figcaption>
+              The rocket equation module. Inputs carry their units, and the equation model
+              panel names every term in the formula being applied.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="ox-mission">
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="ox-mission">Mission Control and Replay</h2>
+        </div>
+        <div>
+          <div class="prose">
+            <p>
+              Mission Control takes a mission preset, an ISS-style resupply for example, and
+              opens it as a full workspace: the mission profile, the orbital visualisation,
+              the phase sequence, and the report that comes out of it. The phases run from
+              launch and departure through orbit transfer and manoeuvre, and each one resolves
+              from the mission configuration rather than being written in by hand.
+            </p>
+            <p>
+              Replay is the other half. Once a mission has run you can play it back and step
+              through what happened, which is how you check that a change to a calculation
+              actually did what you expected across the whole sequence.
+            </p>
+          </div>
+
+          <figure class="figure">
+            <img
+              src="../../assets/orbix/orbix-mission-control.webp"
+              alt="ORBIX Mission Control showing the ISS Style Resupply mission profile with its category, preset, workspace and educational simulation status, a replay startup control, and twelve mission workspaces grouped into mission, engineering, review and presentation."
+              width="790" height="858" loading="lazy" decoding="async"
+              class="figure__portrait-wide"
+            >
+            <figcaption>
+              A mission open in Mission Control, with its twelve workspaces. Replay sits in the
+              presentation group on the right.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tinted" aria-labelledby="ox-reliability">
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="ox-reliability">Making it reliable as it grew</h2>
+        </div>
+        <div>
+          <div class="prose">
+            <p>
+              Because everything reads from the same vehicle configurations and the same
+              calculation code, a change in one place can reach a long way. Adjust how a unit
+              is handled and you have potentially touched every profile, the comparison engine,
+              and half the Lab. Once ORBIX passed a certain size I could not check that by
+              clicking through the app, so I let the tests do it.
+            </p>
+            <p>
+              The unit tests cover the calculations and the data handling. The browser tests
+              drive the real interface, including an accessibility suite and a visual set that
+              catches layout changes I did not intend. All of it runs in GitHub Actions on the
+              way to a production build on Vercel, so a broken change fails before it ships.
+            </p>
+          </div>
+
+          <h3 class="subhead">Final validation run</h3>
+          <dl class="spec">
+            <div>
+              <dt>Unit tests</dt>
+              <dd>936 of 936 passing (Vitest)</dd>
+            </div>
+            <div>
+              <dt>Browser tests</dt>
+              <dd>463 passed, 359 skipped, 0 failed (Playwright)</dd>
+            </div>
+            <div>
+              <dt>Accessibility</dt>
+              <dd>131 passed, 10 skipped</dd>
+            </div>
+            <div>
+              <dt>Visual regression</dt>
+              <dd>28 of 28</dd>
+            </div>
+            <div>
+              <dt>Build</dt>
+              <dd>Clean production build</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="ox-learned">
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="ox-learned">What I learned</h2>
+        </div>
+        <div>
+          <div class="prose">
+            <p>
+              Structure matters more than speed on a project this size. The early surfaces were
+              quick to build and the later ones were quick to break, and the difference was
+              whether they shared a clear model of what a vehicle actually is. Time spent on
+              that model paid for itself every time I added something new.
+            </p>
+            <p>
+              I also learned that technical data needs its sources and its units carried with
+              it, not written down once in a document somewhere. And that on a project I work
+              on for months, tests are not bureaucracy. They are the only way I can change
+              something in the middle of the app and still trust the edges.
+            </p>
+          </div>
+
+          <h3 class="subhead">Built with</h3>
+          <p class="feature__tools">
+            Next.js 16 · React · TypeScript · Tailwind CSS 4 · Vitest · Playwright ·
+            GitHub Actions · Vercel
+          </p>
+
+          <p class="feature__links">
+            <a class="link-arrow" href="https://orbix-aerospace.vercel.app" rel="noopener">Open ORBIX</a>
+          </p>
+        </div>
       </div>
     </section>
 
     <nav class="wrap project-nav" aria-label="Project">
       <a href="../../#work">All work</a>
-      <a href="../bell-nozzle/">Next: Optimized Bell Nozzle</a>
+      <a href="../bell-nozzle/">Next: Bell Nozzle</a>
     </nav>
   </main>
 
