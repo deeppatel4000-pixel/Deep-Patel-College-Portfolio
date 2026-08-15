@@ -26,7 +26,7 @@
   --color-surface: #f2efe9;
   --color-text: #16181c;
   --color-text-secondary: #3c4147;
-  --color-muted: #6d7278;
+  --color-muted: #63686e;
   --color-accent: #23557a;
   --color-accent-hover: #163853;
   --color-border: #ddd8ce;
@@ -274,7 +274,8 @@ a:hover {
   border-bottom-color: var(--color-border-strong);
 }
 
-.site-nav a[aria-current="true"] {
+.site-nav a[aria-current="true"],
+.site-nav a[aria-current="page"] {
   color: var(--color-accent);
   border-bottom-color: var(--color-accent);
 }
@@ -367,6 +368,10 @@ a:hover {
   border-bottom: 0;
 }
 
+.section--tinted:last-of-type {
+  border-bottom: 1px solid var(--color-border);
+}
+
 .section--tinted {
   background: var(--color-surface);
   border-block: 1px solid var(--color-border);
@@ -410,6 +415,10 @@ a:hover {
 .feature {
   padding-block: clamp(3rem, 7vw, 5.5rem);
   border-bottom: 1px solid var(--color-border);
+}
+
+.feature:last-of-type {
+  border-bottom: 0;
 }
 
 .feature--tinted {
@@ -826,6 +835,11 @@ a:hover {
   margin-block: var(--space-5) var(--space-5);
 }
 
+/* top-level pages have no back link, so the title leads the masthead */
+.project-header__title:first-child {
+  margin-top: 0;
+}
+
 .project-meta {
   display: grid;
   gap: var(--space-4);
@@ -961,6 +975,47 @@ a:hover {
 .subhead + .spec,
 .subhead + .runs {
   margin-top: var(--space-4);
+}
+
+/* --- milestone sequence --------------------------------------------------- */
+
+.milestones {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.milestone {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.milestone__index {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  line-height: 1;
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.milestone__title {
+  font-size: var(--step-2);
+}
+
+.milestone__title + .prose {
+  margin-top: var(--space-3);
+}
+
+@media (min-width: 46rem) {
+  .milestone {
+    grid-template-columns: 3rem minmax(0, 1fr);
+    column-gap: var(--space-5);
+    row-gap: 0;
+  }
+
+  .milestone__index {
+    padding-top: 0.35rem;
+  }
 }
 
 /* --- run history table ---------------------------------------------------- */
