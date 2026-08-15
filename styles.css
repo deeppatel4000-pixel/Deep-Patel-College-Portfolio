@@ -681,6 +681,13 @@ a:hover {
   color: var(--color-muted);
 }
 
+/* one photograph at a compact editorial width, so several of them down a
+   single entry read as the same class of supporting material rather than as
+   a run of features. Narrow screens fall back to the content width. */
+.evidence--compact {
+  max-width: min(28rem, 100%);
+}
+
 /* source credit for photographs Deep did not take, quieter than the caption
    it sits under but still plainly readable */
 .credit {
@@ -697,7 +704,7 @@ a:hover {
     gap: var(--space-4);
   }
 
-  .evidence.evidence--single {
+  .evidence.evidence--compact {
     grid-template-columns: 1fr;
   }
 }
