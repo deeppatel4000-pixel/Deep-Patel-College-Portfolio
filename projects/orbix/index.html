@@ -127,7 +127,129 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="ox-data">
+    <section class="section" aria-labelledby="ox-grew">
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="ox-grew">How ORBIX grew</h2>
+          <p class="section__note">Five steps, in the order they happened.</p>
+        </div>
+        <div>
+          <ol class="milestones">
+            <li class="milestone">
+              <p class="milestone__index" aria-hidden="true">01</p>
+              <div class="milestone__body">
+                <h3 class="milestone__title">Building the vehicle library</h3>
+                <div class="prose">
+                  <p>
+                    I started with the vehicles themselves. I wanted one place where I could
+                    move between aircraft and launch vehicles without piecing the information
+                    together from separate sources. That became the discovery pages and the
+                    individual profiles, five aircraft and five launch vehicles, each one
+                    opening into a full engineering profile.
+                  </p>
+                </div>
+                <figure class="figure">
+                  <img
+                    src="../../assets/orbix/milestones/orbix-vehicle-discovery.webp"
+                    alt="The ORBIX launch vehicle discovery page showing Falcon 9, Falcon Heavy and Saturn V as large cards with launch photographs, their orbit classes, liftoff thrust and stage count."
+                    width="1584" height="1000" loading="lazy" decoding="async"
+                  >
+                  <figcaption>
+                    The launch vehicle discovery page. Each card carries the orbit classes,
+                    liftoff thrust and stage count before you open the profile.
+                  </figcaption>
+                </figure>
+              </div>
+            </li>
+
+            <li class="milestone">
+              <p class="milestone__index" aria-hidden="true">02</p>
+              <div class="milestone__body">
+                <h3 class="milestone__title">Making comparison useful</h3>
+                <div class="prose">
+                  <p>
+                    Once the profiles worked, I wanted to compare vehicles without flipping
+                    between pages. Compare started as a way to put the numbers next to each
+                    other. Then I worked on making the size of the differences easier to read,
+                    so a row is not only three figures but a sense of how far apart they are.
+                  </p>
+                </div>
+                <figure class="figure">
+                  <img
+                    src="../../assets/orbix/milestones/orbix-compare-magnitudes.webp"
+                    alt="The ORBIX comparison engine with Falcon 9, Saturn V and Starship side by side, grouped into heritage, geometry and mass, with heights of 70 m, 111 m and 124.4 m each shown as a bar and labelled with a note such as nominal value."
+                    width="1584" height="1000" loading="lazy" decoding="async"
+                  >
+                  <figcaption>
+                    Three launch vehicles compared. Each value keeps the note that says how it
+                    was measured, and the bar under it shows the relative size.
+                  </figcaption>
+                </figure>
+              </div>
+            </li>
+
+            <li class="milestone">
+              <p class="milestone__index" aria-hidden="true">03</p>
+              <div class="milestone__body">
+                <h3 class="milestone__title">Turning the data into tools</h3>
+                <div class="prose">
+                  <p>
+                    The biggest change came when ORBIX stopped being only a reference. I built
+                    the Engineering Lab so I could enter my own values and work through the
+                    calculations myself. It grew to 33 modules across six engineering
+                    workflows, including calculators and analysis tools.
+                  </p>
+                </div>
+                <figure class="figure">
+                  <img
+                    src="../../assets/orbix/milestones/orbix-engineering-lab-workflows.webp"
+                    alt="The ORBIX Engineering Lab workflow index listing six workflows from engineering foundations to review and presentation, with the six modules of the first workflow shown beside it above the Tsiolkovsky rocket equation calculator."
+                    width="1584" height="1000" loading="lazy" decoding="async"
+                  >
+                  <figcaption>
+                    The workflow index. Six workflows run from engineering foundations through
+                    to review and presentation, with the modules for each one listed beside it.
+                  </figcaption>
+                </figure>
+              </div>
+            </li>
+
+            <li class="milestone">
+              <p class="milestone__index" aria-hidden="true">04</p>
+              <div class="milestone__body">
+                <h3 class="milestone__title">Planning and replaying missions</h3>
+                <div class="prose">
+                  <p>
+                    After the engineering tools, I started thinking about how the same
+                    information fits into a mission. Mission Control and Mission Replay let me
+                    move from single calculations into mission preparation, analysis and
+                    replay, so a mission can be set up, run, and then stepped back through
+                    afterwards. The section further down this page shows that workspace.
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li class="milestone">
+              <p class="milestone__index" aria-hidden="true">05</p>
+              <div class="milestone__body">
+                <h3 class="milestone__title">Keeping it all working</h3>
+                <div class="prose">
+                  <p>
+                    As ORBIX got larger, keeping everything working became part of the project
+                    too. I added automated tests, tightened the responsive layouts, and worked
+                    through the small inconsistencies that showed up once many features were
+                    sharing the same interface.
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tinted" aria-labelledby="ox-data">
       <div class="wrap section__grid">
         <div class="section__rail">
           <h2 class="section__title" id="ox-data">Keeping the numbers honest</h2>
@@ -170,7 +292,7 @@
       </div>
     </section>
 
-    <section class="section section--tinted" aria-labelledby="ox-lab">
+    <section class="section" aria-labelledby="ox-lab">
       <div class="wrap section__grid">
         <div class="section__rail">
           <h2 class="section__title" id="ox-lab">The Engineering Lab</h2>
@@ -207,7 +329,7 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="ox-mission">
+    <section class="section section--tinted" aria-labelledby="ox-mission">
       <div class="wrap section__grid">
         <div class="section__rail">
           <h2 class="section__title" id="ox-mission">Mission Control and Replay</h2>
@@ -244,7 +366,7 @@
       </div>
     </section>
 
-    <section class="section section--tinted" aria-labelledby="ox-reliability">
+    <section class="section" aria-labelledby="ox-reliability">
       <div class="wrap section__grid">
         <div class="section__rail">
           <h2 class="section__title" id="ox-reliability">Making it reliable as it grew</h2>
@@ -293,7 +415,7 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="ox-learned">
+    <section class="section section--tinted" aria-labelledby="ox-learned">
       <div class="wrap section__grid">
         <div class="section__rail">
           <h2 class="section__title" id="ox-learned">Where I want to take it</h2>

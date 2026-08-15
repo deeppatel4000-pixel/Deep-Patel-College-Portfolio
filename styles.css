@@ -963,6 +963,47 @@ a:hover {
   margin-top: var(--space-4);
 }
 
+/* --- milestone sequence --------------------------------------------------- */
+
+.milestones {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.milestone {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.milestone__index {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  line-height: 1;
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.milestone__title {
+  font-size: var(--step-2);
+}
+
+.milestone__title + .prose {
+  margin-top: var(--space-3);
+}
+
+@media (min-width: 46rem) {
+  .milestone {
+    grid-template-columns: 3rem minmax(0, 1fr);
+    column-gap: var(--space-5);
+    row-gap: 0;
+  }
+
+  .milestone__index {
+    padding-top: 0.35rem;
+  }
+}
+
 /* --- run history table ---------------------------------------------------- */
 
 .runs {
