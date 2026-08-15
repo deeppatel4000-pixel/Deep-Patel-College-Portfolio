@@ -16,12 +16,12 @@
 
   <header class="site-header">
     <div class="wrap site-header__inner">
-      <a class="brand" href="../../">Deep Patel</a>
+      <a class="brand" href="/">Deep Patel</a>
       <nav class="site-nav" aria-label="Primary">
         <ul>
-          <li><a href="../../#work">Work</a></li>
-          <li><a href="../../#about">About</a></li>
-          <li><a href="../../#contact">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/projects/" aria-current="page">Projects</a></li>
+          <li><a href="/experience/">Experience</a></li>
         </ul>
       </nav>
     </div>
@@ -30,7 +30,7 @@
   <main id="main">
     <div class="project-header">
       <div class="wrap">
-        <a class="project-header__back" href="../../#work">Work</a>
+        <a class="project-header__back" href="/projects/">Projects</a>
         <h1 class="project-header__title">Bell Nozzle</h1>
         <p class="lede">
           I drew a bell nozzle in OpenSCAD, tried to simulate it in SimFlow and OpenFOAM, and
@@ -89,7 +89,7 @@
               The relation that matters after that is the one between area ratio and exit Mach
               number for a given ratio of specific heats. You pick the Mach number you want at
               the exit, and it tells you how much bigger the exit has to be than the throat.
-              I worked my sizing around a LOX/RP-1 case: an oxidiser to fuel ratio of 2.56, a
+              I worked my sizing around a LOX/RP-1 case: an oxidizer to fuel ratio of 2.56, a
               100 bar chamber at about 3615 K, expanding to 0.7 bar at roughly 3 km altitude,
               with a ratio of specific heats of 1.2 and a molecular weight of 22.65 g/mol. My
               target was an exit Mach number of 3.5.
@@ -282,7 +282,8 @@
               At first I blamed the mesh, because it was obviously coarse. Then I went back
               through the pressure and temperature settings, then the boundary conditions, then
               the mesh again. Every change gave me another test case, and I ran a lot of them
-              across one evening. Eventually I added a temperature limiter to stop the solver
+              across one evening and the next afternoon. Eventually I added a temperature
+              limiter to stop the solver
               aborting outright, which kept the case alive much longer. A limiter is a way of
               surviving the symptom, though, not a fix for whatever was causing it.
             </p>
@@ -481,7 +482,7 @@
 
     <nav class="wrap project-nav" aria-label="Project">
       <a href="../orbix/">Previous: ORBIX</a>
-      <a href="../../#work">All work</a>
+      <a href="/projects/">All projects</a>
     </nav>
   </main>
 

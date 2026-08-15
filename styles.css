@@ -274,7 +274,8 @@ a:hover {
   border-bottom-color: var(--color-border-strong);
 }
 
-.site-nav a[aria-current="true"] {
+.site-nav a[aria-current="true"],
+.site-nav a[aria-current="page"] {
   color: var(--color-accent);
   border-bottom-color: var(--color-accent);
 }
@@ -367,6 +368,10 @@ a:hover {
   border-bottom: 0;
 }
 
+.section--tinted:last-of-type {
+  border-bottom: 1px solid var(--color-border);
+}
+
 .section--tinted {
   background: var(--color-surface);
   border-block: 1px solid var(--color-border);
@@ -410,6 +415,10 @@ a:hover {
 .feature {
   padding-block: clamp(3rem, 7vw, 5.5rem);
   border-bottom: 1px solid var(--color-border);
+}
+
+.feature:last-of-type {
+  border-bottom: 0;
 }
 
 .feature--tinted {
