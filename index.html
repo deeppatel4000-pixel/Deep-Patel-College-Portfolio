@@ -20,9 +20,9 @@
       <a class="brand" href="/">Deep Patel</a>
       <nav class="site-nav" aria-label="Primary">
         <ul>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="/" aria-current="page">Home</a></li>
+          <li><a href="/projects/">Projects</a></li>
+          <li><a href="/experience/">Experience</a></li>
         </ul>
       </nav>
     </div>
@@ -63,11 +63,9 @@
               <p class="feature__kind">Software · Aerospace web application · 2026</p>
               <h3 class="feature__title" id="orbix-title">ORBIX</h3>
               <p class="feature__summary">
-                ORBIX connects real aircraft and launch vehicles to the orbital mechanics,
-                entry physics, and thermal analysis behind them, and every number stays
-                attached to the source it came from. It covers 10 vehicles, five aircraft and
-                five launch vehicles, that you can compare side by side, an Engineering Lab of
-                33 modules, and mission tools that simulate a flight and replay it.
+                An aerospace web application I designed and built. It connects real aircraft
+                and launch vehicles to the engineering behind them, and every number keeps its
+                units, its qualifier and its source.
               </p>
               <p class="feature__links">
                 <a class="link-arrow" href="projects/orbix/">Read the case study</a>
@@ -100,20 +98,14 @@
             <h3 class="feature__title" id="nozzle-title">Bell Nozzle</h3>
             <p class="feature__summary">
               I wanted to know how bell nozzles actually work, so I tried to design one. I drew
-              the profile in OpenSCAD and revolved it into a shell, ran the flow volume through
-              SimFlow and OpenFOAM, and printed the part in PLA. The simulation never
-              converged, so most of the project turned into figuring out why.
+              the profile in OpenSCAD, ran the flow volume through SimFlow and OpenFOAM, and
+              printed the part in PLA. The simulation never converged, so most of the project
+              turned into figuring out why.
             </p>
-
-            <p class="pull-quote">
-              The first cases died almost immediately. The best one reached iteration 24, then
-              diverged.
-            </p>
-
-            <p class="feature__tools">OpenSCAD · SimFlow · OpenFOAM · ParaView · FDM</p>
 
             <p class="feature__links">
               <a class="link-arrow" href="projects/bell-nozzle/">Read the case study</a>
+              <a class="link-arrow" href="projects/">All projects</a>
             </p>
           </div>
 
@@ -168,174 +160,28 @@
     </section>
 
     <section class="section section--tinted" id="experience" aria-labelledby="experience-title">
-      <div class="wrap">
-        <h2 class="section__title section__title--wide" id="experience-title">Things I have done</h2>
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="experience-title">Things I have done</h2>
+        </div>
+        <div>
+          <div class="prose">
+            <p>
+              Outside class I run weekly Bal Mandal assemblies for more than 70 children and
+              help lead two annual programs, the Bal Balika Summer Shibir and the Kids Diwali
+              Celebration. From July to October 2023 I did full-time digital fabrication at
+              BAPS Akshardham, drawing architectural components and then running the CNC and
+              hot-wire machines that cut them.
+            </p>
+            <p>
+              Before that I worked in technical operations and in fulfillment, and at school I
+              do high jump and hurdles, robotics, and the AI club.
+            </p>
+          </div>
 
-        <div class="groups">
-          <section class="group" aria-labelledby="group-leadership">
-            <h3 class="group__title" id="group-leadership">Leadership and service</h3>
-            <div class="group__lead">
-              <p class="group__role">Youth Activities Coordinator, BAPS Bal Mandal</p>
-              <p class="group__when">Lowell, MA · August 2022 to present</p>
-              <p class="group__detail">
-                I run weekly assemblies attended by more than 70 children. I teach lessons
-                about Hinduism along with virtues, values, and morals that they can carry
-                with them as they grow.
-              </p>
-
-              <div class="evidence evidence--compact">
-                <figure>
-                  <img
-                    src="assets/bal-mandal/weekly-assembly-teaching.webp"
-                    alt="Standing and teaching from a book to a group of children sitting on the floor with their own books open during a weekly Bal Mandal assembly."
-                    width="1600" height="1200" loading="lazy" decoding="async"
-                  >
-                  <figcaption>
-                    Leading a weekly Bal Mandal assembly for children at the mandir.
-                  </figcaption>
-                </figure>
-              </div>
-
-              <p class="group__detail">
-                I help lead the annual Bal Balika Summer Shibir, a three-day camp for children
-                in grades 4 through 8 that teaches religious values through activities, stage
-                programs, and breakout sessions. More than 1,000 participants take part. I worked
-                on the 2023, 2024, and 2025 shibirs, putting together the stage program and
-                coordinating between the food services, hall setup, stage, and activity teams.
-              </p>
-
-              <div class="evidence evidence--compact">
-                <figure>
-                  <img
-                    src="assets/bal-mandal/shibir-stage-program-gameshow.webp"
-                    alt="Stage program with presenters and an Island of Crystals gameshow set during Bal Balika Summer Shibir."
-                    width="1200" height="800" loading="lazy" decoding="async"
-                  >
-                  <figcaption>
-                    Stage program during the Bal Balika Summer Shibir.
-                    <span class="credit">Photo credit: BAPS.org</span>
-                  </figcaption>
-                </figure>
-              </div>
-
-              <p class="group__detail">
-                I also help lead the Kids Diwali Celebration at our local temple, where around
-                400 to 500 children come each year for a stage program, activities, food, and
-                arcade-style games built around Diwali and the Hindu values taught at the
-                temple. I helped lead it in 2023, 2024, and 2025, and I plan to continue in
-                2026.
-              </p>
-
-              <div class="evidence evidence--compact">
-                <figure>
-                  <img
-                    src="assets/bal-mandal/kdc-kids-game-activity.webp"
-                    alt="Children participating in a game during the Kids Diwali Celebration with other activities in the background."
-                    width="1200" height="800" loading="lazy" decoding="async"
-                  >
-                  <figcaption>
-                    Children taking part in one of the games during the Kids Diwali Celebration.
-                    <span class="credit">Photo credit: BAPS.org</span>
-                  </figcaption>
-                </figure>
-              </div>
-            </div>
-            <div class="group__also prose">
-              <p>
-                <strong>Volunteer, BAPS Charities</strong> · Lowell, MA · June 2017 to present
-              </p>
-              <p>
-                Health awareness events, community cleanups, and food drives. On event days
-                that means setup, registration, crowd coordination, and outreach.
-              </p>
-            </div>
-          </section>
-
-          <section class="group" aria-labelledby="group-technical">
-            <h3 class="group__title" id="group-technical">Technical and work</h3>
-            <div class="group__lead">
-              <p class="group__role">Full-Time Volunteer, BAPS Akshardham</p>
-              <p class="group__when">Robbinsville, NJ · July 2023 to October 2023</p>
-              <p class="group__detail">
-                Full-time digital fabrication on a large cultural build. I drew architectural
-                components in CorelDRAW and Adobe Illustrator, turned those drawings into
-                CNC-ready files, then ran the industrial CNC cutting systems and hot-wire
-                machinery that cut the components from wood, PVC, and styrofoam. I worked on
-                both sides of the process, from preparing the drawings and machine files to
-                operating the equipment that cut the components.
-              </p>
-
-              <div class="evidence">
-                <figure>
-                  <img
-                    src="assets/akshardham/cnc-cutting-ornamental-foam.webp"
-                    alt="CNC router machining an ornamental architectural pattern into a large turquoise foam panel."
-                    width="960" height="1280" loading="lazy" decoding="async"
-                  >
-                  <figcaption>
-                    CNC routing an ornamental foam component in the Akshardham fabrication
-                    shop, 2023.
-                  </figcaption>
-                </figure>
-                <figure>
-                  <img
-                    src="assets/akshardham/finished-foam-components.webp"
-                    alt="Turquoise ornamental foam components laid out on a workshop floor after CNC machining."
-                    width="960" height="1280" loading="lazy" decoding="async"
-                  >
-                  <figcaption>
-                    Fabricated foam components after CNC machining.
-                  </figcaption>
-                </figure>
-              </div>
-            </div>
-            <div class="group__also prose">
-              <p>
-                <strong>Technical Operations Intern, Stash Proxies</strong> · Lowell, MA ·
-                January 2021 to January 2022
-              </p>
-              <p>
-                Monitored proxy infrastructure serving 500+ monthly active users, and helped
-                test IP performance, targeting accuracy, and server health.
-              </p>
-              <p>
-                <strong>Fulfillment &amp; Logistics Associate, Dasbhav LLC</strong> ·
-                Lowell, MA · November 2020 to January 2022
-              </p>
-              <p>
-                Shipping, packaging, labeling, pickups, tracking, inventory, and replenishment
-                reports. When I found inefficiencies in how orders were put together, I set up
-                a more streamlined packaging procedure.
-              </p>
-            </div>
-          </section>
-
-          <section class="group" aria-labelledby="group-teams">
-            <h3 class="group__title" id="group-teams">Teams and activities</h3>
-            <div class="group__lead">
-              <p class="group__role">Student Athlete, Chelmsford Track and Field</p>
-              <p class="group__when">November 2023 to present</p>
-              <p class="group__detail">
-                I compete in the high jump, the 55m hurdles, and the 110m hurdles, indoor and
-                outdoor season.
-              </p>
-            </div>
-            <div class="group__also prose">
-              <p>
-                <strong>Robotics Club</strong> · September 2023 to June 2024
-              </p>
-              <p>
-                Designed, built, and tested robots for VEX Robotics competitions.
-              </p>
-              <p>
-                <strong>Artificial Intelligence Club</strong> · September 2025 to present
-              </p>
-              <p>
-                Group discussions about AI tools and where they get used, and hands-on projects
-                built with other members.
-              </p>
-            </div>
-          </section>
+          <p class="feature__links">
+            <a class="link-arrow" href="experience/">See the full experience</a>
+          </p>
         </div>
       </div>
     </section>
@@ -360,7 +206,7 @@
   <footer class="site-footer">
     <div class="wrap site-footer__inner">
       <p>Deep Patel · Chelmsford, Massachusetts</p>
-      <p><a href="#main">Back to top</a></p>
+      <p><a href="mailto:deep.patel4000@gmail.com">deep.patel4000@gmail.com</a></p>
     </div>
   </footer>
 
