@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects · Deep Patel</title>
+  <meta name="description" content="ORBIX, an aerospace web application, and a bell nozzle designed in OpenSCAD, simulated in OpenFOAM, and printed in PLA.">
+  <link rel="canonical" href="https://deeppatel4000-pixel.github.io/projects/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Projects · Deep Patel">
+  <meta property="og:description" content="An aerospace web application, and a bell nozzle taken from geometry to a printed part.">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="/">Deep Patel</a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/projects/" aria-current="page">Projects</a></li>
+          <li><a href="/experience/">Experience</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="project-header">
+      <div class="wrap">
+        <a class="project-header__back" href="../">Home</a>
+        <h1 class="project-header__title">Projects</h1>
+        <p class="lede">
+          Two projects I built and can account for in detail. One is software I designed and
+          shipped, the other is a propulsion part I drew, meshed, failed to converge, and
+          printed anyway. Each has a case study with the working and the numbers behind it.
+        </p>
+      </div>
+    </div>
+
+    <section id="work" aria-labelledby="projects-title">
+      <h2 class="visually-hidden" id="projects-title">Project index</h2>
+
+      <article class="feature" aria-labelledby="p-orbix">
+        <div class="wrap">
+          <div class="feature__head">
+            <p class="feature__index" aria-hidden="true">01</p>
+            <div class="feature__intro">
+              <p class="feature__kind">Software · Aerospace web application · 2026</p>
+              <h3 class="feature__title" id="p-orbix">ORBIX</h3>
+              <p class="feature__summary">
+                An aerospace web application built around 10 vehicles, five aircraft and five
+                launch vehicles, where every value keeps its units, its qualifier and its
+                source. On top of the profiles sit a comparison engine, an Engineering Lab of
+                33 modules across six workflows, and mission tools that prepare, run and
+                replay a mission.
+              </p>
+              <p class="feature__tools">Next.js · React · TypeScript · Tailwind CSS · Vitest · Playwright</p>
+              <p class="feature__links">
+                <a class="link-arrow" href="orbix/">Read the case study</a>
+                <a class="link-arrow" href="https://orbix-aerospace.vercel.app" rel="noopener">Open the live app</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <figure class="feature__figure">
+          <div class="wrap">
+            <img
+              src="../assets/orbix/orbix-launch-registry.webp"
+              alt="The ORBIX launch vehicle registry: Falcon 9, Falcon Heavy, and Saturn V shown as cards with photographs, orbit classes, liftoff thrust, and stage counts."
+              width="1585" height="1090" loading="lazy" decoding="async"
+            >
+            <figcaption>
+              The launch vehicle registry. Each card opens into a full engineering profile.
+            </figcaption>
+          </div>
+        </figure>
+      </article>
+
+      <article class="feature feature--tinted" aria-labelledby="p-nozzle">
+        <div class="wrap feature__split">
+          <div class="feature__panel">
+            <p class="feature__index" aria-hidden="true">02</p>
+            <p class="feature__kind">Engineering · Self-directed propulsion project · April 2026</p>
+            <h3 class="feature__title" id="p-nozzle">Bell Nozzle</h3>
+            <p class="feature__summary">
+              A bell nozzle drawn in OpenSCAD from a six-point profile, meshed and run through
+              SimFlow and OpenFOAM, and printed in PLA. The simulation never converged, so most
+              of the project became working out why, and the case study keeps that result
+              rather than dressing it up.
+            </p>
+            <p class="feature__tools">OpenSCAD · SimFlow · OpenFOAM · ParaView · FDM</p>
+            <p class="feature__links">
+              <a class="link-arrow" href="bell-nozzle/">Read the case study</a>
+            </p>
+          </div>
+
+          <figure class="feature__aside feature__aside--portrait">
+            <img
+              src="../assets/nozzle/bell-nozzle-printed.webp"
+              alt="Gray 3D-printed PLA bell nozzle prototype standing on its exit face, with the narrow inlet cup at the top, the throat below it, and the bell widening to the exit at the base."
+              width="1122" height="1402" loading="lazy" decoding="async"
+            >
+            <figcaption>
+              The finished PLA prototype, 84.48 mm tall.
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" aria-labelledby="p-next">
+      <div class="wrap section__grid">
+        <div class="section__rail">
+          <h2 class="section__title" id="p-next">What comes next</h2>
+        </div>
+        <div class="prose">
+          <p>
+            ORBIX is still in development, and I plan to keep adding vehicles, engineering
+            tools and mission features to it as I learn more. Anything I build after this
+            will go here alongside these two.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="wrap project-nav" aria-label="Site">
+      <a href="../experience/">Experience</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <p>Deep Patel · Chelmsford, Massachusetts</p>
+      <p><a href="mailto:deep.patel4000@gmail.com">deep.patel4000@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script src="../script.js" defer></script>
+</body>
+</html>
